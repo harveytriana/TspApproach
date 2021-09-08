@@ -5,6 +5,7 @@ By: harveytriana@gmail.com
 RUN
 $ dotnet run -c Release
 
+OUTPUT
 Nodes         : 13
 Iterations    : 479,001,600
 Nodules       : 1 2 3 4 5 6 7 8 9 10 11 12

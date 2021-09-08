@@ -33,6 +33,6 @@ By: Luis Harvey Triana Vega
 
 *Update: 05-09-21*
 
-** Collaborations **
+**Collaborations**
 
 You are welcome to publish a version in another language. For example, a C++ equivalent would be desirable. Likewise, how to improve the code.

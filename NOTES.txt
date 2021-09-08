@@ -1,0 +1,46 @@
+
+NOTE 1.
+Instead of a matrix, the spatial points are specified on a 2D plane. The following routine calculates the matrix.
+Add to class TspExact
+#region Point Array
+// 
+public void GetOptimusRoute((long, long)[] points, long depot = 0) {
+    var q = GenMatrix(points);
+    GetOptimusRoute(q, depot);
+}
+
+static long[,] GenMatrix((long, long)[] points) {
+    var n = points.Length;
+    var q = new long[n, n];
+    for (long i = 0; i < n; i++) {
+        Console.WriteLine();
+        for (long j = 0; j < n; j++) {
+            q[i, j] = DistanceBetweenPoints(points[i], points[j]);
+            Console.Write("{0}, ", q[i, j]);
+        }
+    }
+    return q;
+}
+
+static long DistanceBetweenPoints((long, long) P1, (long, long) p2) {
+    var legX = Math.Abs(p2.Item1 - P1.Item1);
+    var legY = Math.Abs(p2.Item2 - P1.Item2);
+    return (long) Math.Round(Math.Sqrt(legX * legX + legY * legY), 0, MidpointRounding.AwayFromZero);
+}
+#endregion
+
+
+NOTE 2.
+Sample with 4 nodes. 
+
+static void Sample4Nodes() {
+    long[,] a = {// ACDBA
+        // A   B   C   D
+        { 00, 10, 35, 30 }, // A
+        { 10, 00, 30, 15 }, // B
+        { 35, 30, 00, 30 }, // C
+        { 30, 15, 30, 00 }  // D
+    };
+    new TspExact().GetOptimusRoute(a);
+}
+

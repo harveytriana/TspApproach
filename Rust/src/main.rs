@@ -3,7 +3,7 @@
 TSP execise
 
 RUN
-cargo runcargo run --release
+cargo run --release
 
 OUTPUT
 Nodes         : 13

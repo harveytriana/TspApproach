@@ -36,7 +36,7 @@ class Program
             };
 
         Console.WriteLine("Traveling Salesman Problem Exact algorithm");
-        new TspExact().GetOptimusRoute(a);
+        new TspExact().GetOptimumRoute(a);
     }
 }
 
@@ -54,7 +54,7 @@ class TspExact
     string _route;
     long[] _nodules;
 
-    public void GetOptimusRoute(long[,] data, long depot = 0) {
+    public void GetOptimumRoute(long[,] data, long depot = 0) {
         _data = data;
         _depot = depot;
         _nodes = _data.GetLength(0);

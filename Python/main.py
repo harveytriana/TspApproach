@@ -56,10 +56,10 @@ def main():
     #     [35, 30, 00, 30],
     #     [30, 15, 30, 00],
     # ]
-    get_optimus_route(data, 0)
+    get_optimum_route(data, 0)
 
 
-def get_optimus_route(data, depot):
+def get_optimum_route(data, depot):
     global _data
     global _depot
     global _nodules_count

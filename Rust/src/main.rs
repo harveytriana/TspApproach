@@ -21,7 +21,7 @@ use std::time::Instant;
 
 const NODES: usize = 13;
 
-fn get_optimus_route(data: [[usize; NODES]; NODES], depot: usize) {
+fn get_optimum_route(data: [[usize; NODES]; NODES], depot: usize) {
     let nodes = data.len();
     let mut min_distance = usize::MAX;
     let nodules_count = nodes - 1;
@@ -147,5 +147,5 @@ fn main() {
     ];
 
     println!("Traveling Salesman Problem Exact algorithm");
-    get_optimus_route(data, 0);
+    get_optimum_route(data, 0);
 }

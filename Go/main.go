@@ -35,7 +35,7 @@ var _route string
 var nodules []int64
 var now time.Time
 
-func GetOptimusRoute(data [][]int64, depot int64) {
+func getOptimumRoute(data [][]int64, depot int64) {
     _data = data
     _depot = depot
     _nodes = int64(len(_data))
@@ -62,7 +62,7 @@ func GetOptimusRoute(data [][]int64, depot int64) {
     fmt.Printf("Nodules        : %s\n", arrayToString(nodules))
 
     // recursive calculation
-    permutations(0, _nodules_count)
+    getRoute(0, _nodules_count)
 
     fmt.Println("RESULT")
     fmt.Printf("Optimus route : %d,%s,%d\n", _depot, _route, _depot)
@@ -70,7 +70,7 @@ func GetOptimusRoute(data [][]int64, depot int64) {
     fmt.Printf("Elapse Time   : %v\n", time.Now().Sub(now))
 }
 
-func permutations(start int64, end int64) {
+func getRoute(start int64, end int64) {
     if start == (end - 1) {
         // validate distance
         // 1. boundaries A..N, N..A
@@ -93,7 +93,7 @@ func permutations(start int64, end int64) {
             // swap
             nodules[start], nodules[i] = nodules[i], nodules[start]
             // permute
-            permutations(start+1, end)
+            getRoute(start+1, end)
             // swap
             nodules[start], nodules[i] = nodules[i], nodules[start]
         }
@@ -130,5 +130,5 @@ func main() {
     }
 
     fmt.Println("Traveling Salesman Problem Exact algorithm")
-    GetOptimusRoute(data, 0)
+    getOptimumRoute(data, 0)
 }

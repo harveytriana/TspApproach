@@ -13,6 +13,9 @@ Nodules       : 1 2 3 4 5 6 7 8 9 10 11 12
 Optimum route : 0 [7, 2, 3, 4, 12, 6, 8, 1, 11, 10, 5, 9] 0
 Distance      : 7293
 Elapse Time   : 10.0019832s
+
+For dynamic array 2D, use: Vec<Vec<usize>> instead of
+ [[usize; NODES]; NODES]. Elapse Time is ~16
 ----------------------------------------------------
 */
 #![allow(non_snake_case)]

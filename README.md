@@ -35,4 +35,4 @@ By: Luis Harvey Triana Vega
 
 **Collaborations**
 
-You are welcome to publish a version in another language. For example, a C++ equivalent would be desirable. Likewise, how to improve the code.
+You are welcome to publish a version in another language. For example, a C++ equivalent would be desirable. 

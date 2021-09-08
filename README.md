@@ -29,10 +29,6 @@ In the algorithm that I programmed there is a flat in that the number of effecti
 ---
 *By: Luis Harvey Triana Vega | https://www.blazorspread.net*
 
-<<<<<<< HEAD
 <small>P.S. Please add a star to this post if it is helpful to you.</small>
-=======
-*Update: 05-09-21*
 
-<small>P.S. Please add a star to this post if it is helpful to you.</small>
->>>>>>> 268b40b7222b03ee56653395151ec088f9a42950
+*Update: 05-09-21*

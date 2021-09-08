@@ -10,7 +10,7 @@ Nodes         : 13
 Iterations    : 479,001,600
 Nodules       : 1 2 3 4 5 6 7 8 9 10 11 12
 ...
-Optimus route : 0 7 2 3 4 12 6 8 1 11 10 5  0
+Optimum route : 0 7 2 3 4 12 6 8 1 11 10 5  0
 Distance      : 7293
 Elapse Time   : 20.0720705 s
 */
@@ -84,7 +84,7 @@ class TspExact
         GetRoute(0, _nodulesCount);
 
         Console.WriteLine("RESULT");
-        Console.WriteLine("Optimus route : {0} {1} {2}", _depot, _route, _depot);
+        Console.WriteLine("Optimum route : {0} {1} {2}", _depot, _route, _depot);
         Console.WriteLine("Distance      : {0}", _minDistance);
         Console.WriteLine("Elapse Time   : {0} s", (DateTime.Now - now).TotalSeconds);
     }

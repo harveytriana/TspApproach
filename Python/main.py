@@ -10,7 +10,7 @@ Iterations    : 479,001,600
 Nodules       : 1 2 3 4 5 6 7 8 9 10 11 12
 ...
 RESULT
-Optimus route  : 0 7 10 5 11 1 8 6 12 4 3 2 9 0
+Optimum route  : 0 7 10 5 11 1 8 6 12 4 3 2 9 0
 Distance       : 7632
 Elapse time    : 290.47128772735596s (!)
 
@@ -93,7 +93,7 @@ def get_optimum_route(data, depot):
     get_route(0, _nodules_count)
 
     print("RESULT")
-    print(f"Optimus route  : {_depot} {_route}{_depot}")
+    print(f"Optimum route  : {_depot} {_route}{_depot}")
     print(f"Distance       : {_minDistance}")
     print(f"Elapse time    : {time.time() - now}s")
 

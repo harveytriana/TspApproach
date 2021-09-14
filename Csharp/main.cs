@@ -84,7 +84,7 @@ class TspExact
         GetRoute(0, _nodulesCount);
 
         Console.WriteLine("RESULT");
-        Console.WriteLine("Optimum route : {0} {1} {2}", _depot, _route, _depot);
+        Console.WriteLine("Optimum route : {0} {1}{2}", _depot, _route, _depot);
         Console.WriteLine("Distance      : {0}", _minDistance);
         Console.WriteLine("Elapse Time   : {0} s", (DateTime.Now - now).TotalSeconds);
     }
@@ -129,7 +129,7 @@ class TspExact
 
     void NodulesString() {
         _route = string.Empty;
-        for (long i = 0; i < _nodulesCount - 1; i++) {
+        for (long i = 0; i < _nodulesCount; i++) {
             _route = _route + _nodules[i].ToString() + " ";
         }
     }

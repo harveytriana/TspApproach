@@ -1,6 +1,6 @@
 # Rust, GO, and C# in the same Stage
 
-### Traveling Salesman Problem Exact algorithm
+## Traveling Salesman Problem Exact algorithm
 
 *Update: 08-09-21*
 

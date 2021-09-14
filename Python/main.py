@@ -15,6 +15,15 @@ Distance       : 7632
 Elapse time    : 290.47128772735596s (!)
 
 NOTE. A Python expert would write it better, and optimized run
+
+Executable from Python Script using Pyinstaller
+$ pyinstaller --onefile main.py
+$ main-exe
+
+RESULT
+Optimum route  : 0 7 10 5 11 1 8 6 12 4 3 2 9 0
+Distance       : 7632
+Elapse time    : 157.68839168548584s 
 """
 import math
 import time

@@ -20,16 +20,16 @@ In each code file, in the header I put a comment block with the results. I dealt
 
 There are three contributions; FORTRAN, Dart, and Python. It is mentioned that there are several variables that could change the results, for example the compilation parameters. In summary of results is as follows:
 
-| Language     | Elapsed time 13 nodes |
-| ------------ | --------------------- |
-| Rust         | 10                    |
-| Rust Vectors | 16                    |
-| GO           | 17                    |
-| C#           | 20                    |
-| Fortran      | 30                    |
-| Dart         | 30                    |
-| Python (exe) | 157                   |
-|              |                       |
+| Language     | Time 13 nodes, s |
+| ------------ | ---------------- |
+| Rust         | 10               |
+| Rust Vectors | 16               |
+| GO           | 17               |
+| C#           | 20               |
+| Fortran      | 30               |
+| Dart         | 30               |
+| Python (exe) | 157              |
+|              |                  |
 
 ## Conclusions
 

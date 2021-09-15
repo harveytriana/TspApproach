@@ -23,7 +23,6 @@ There are three contributions; FORTRAN, Dart, and Python. It is mentioned that t
 | Language     | Time 13 nodes, s |
 | ------------ | ---------------- |
 | Rust         | 10               |
-| Rust Vectors | 16               |
 | GO           | 17               |
 | C#           | 20               |
 | Fortran      | 30               |

@@ -27,7 +27,7 @@ There are three contributions; FORTRAN, Dart, and Python. It is mentioned that t
 | GO           | 17               |
 | C#           | 20               |
 | Fortran      | 30               |
-| Dart         | 30               |
+| Dart         | 35               |
 | Python (exe) | 157              |
 |              |                  |
 

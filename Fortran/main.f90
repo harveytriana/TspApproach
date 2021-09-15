@@ -41,7 +41,7 @@ program tspApproach
     implicit none
 
     integer, parameter :: NODES_COUNT = 13
-    integer, parameter :: NODUDELS_COUNT = NODES_COUNT - 1
+    integer, parameter :: NODULES_COUNT = NODES_COUNT - 1
 
     ! FUNCTIONS
     integer :: factorial
@@ -65,8 +65,8 @@ program tspApproach
 
     ! define matrix
     integer, dimension(0:NODES_COUNT-1, 0:NODES_COUNT-1) :: data
-    integer, dimension(0:NODUDELS_COUNT-1) :: nodules
-    integer, dimension(0:NODUDELS_COUNT-1) :: route
+    integer, dimension(0:NODULES_COUNT-1) :: nodules
+    integer, dimension(0:NODULES_COUNT-1) :: route
 
     print *, 'Traveling Salesman Problem Exact algorithm'
 
@@ -94,7 +94,7 @@ program tspApproach
 
     depot = 0
     nodes = NODES_COUNT
-    nodulesCount = NODUDELS_COUNT
+    nodulesCount = NODULES_COUNT
     iterations = factorial(nodulesCount)
     percentSize = iterations / 100
     percent = 0

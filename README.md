@@ -18,7 +18,7 @@ I was curious to write and run into a specific problem in all three languages. I
 
 In each code file, in the header I put a comment block with the results. I dealt with the problem with 13 nodes, taking the data sample that the [Google-COR-Tools](https://developers.google.com/optimization/routing/tsp) documentation shows.
 
-There are three contributions; FORTRAN, Dart, and Python. It is mentioned that there are several variables that could change the results, for example the compilation parameters. In summary of results is as follows:
+There are three contributions; FORTRAN, Dart, and Python. It is mentioned that there are several variables that could change the results, for example the compilation parameters. The results vary according to the machine where it is executed, but not the order. In summary of results is as follows:
 
 | Language     | Time 13 nodes, s |
 | ------------ | ---------------- |

@@ -18,9 +18,21 @@ I was curious to write and run into a specific problem in all three languages. I
 
 In each code file, in the header I put a comment block with the results. I dealt with the problem with 13 nodes, taking the data sample that the [Google-COR-Tools](https://developers.google.com/optimization/routing/tsp) documentation shows.
 
+There are three contributions; FORTRAN, Dart, and Python. It is mentioned that there are several variables that could change the results, for example the compilation parameters. The results vary according to the machine where it is executed, but not the order. In summary of results is as follows:
+
+| Language     | Time 13 nodes, s |
+| ------------ | ---------------- |
+| Rust         | 10               |
+| GO           | 17               |
+| C#           | 20               |
+| Fortran      | 30               |
+| Dart         | 35               |
+| Python (exe) | 157              |
+|              |                  |
+
 ## Conclusions
 
-While C# is at a disadvantage in extreme performance, the margin is not great. It takes into account that it was programmed with objects, and that it is not optimized with unusual things in C# like pointers. Long live C#. On the other hand, Rust with vectors outperforms GO, but not by much. However, Rust, using a predefined matrix, outperforms the others by a significant margin. 
+While C# is at a little disadvantage in extreme performance, the margin is not great. It takes into account that it was programmed with objects, and that it is not optimized with unusual things in C# like pointers. Long live C#. On the other hand, Rust with vectors outperforms GO, but not by much. However, Rust, using a predefined matrix, outperforms the others by a significant margin. 
 
 ### Epilogue
 

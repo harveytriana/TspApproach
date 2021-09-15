@@ -32,7 +32,7 @@ There are three contributions; FORTRAN, Dart, and Python. It is mentioned that t
 
 ## Conclusions
 
-While C# is at a disadvantage in extreme performance, the margin is not great. It takes into account that it was programmed with objects, and that it is not optimized with unusual things in C# like pointers. Long live C#. On the other hand, Rust with vectors outperforms GO, but not by much. However, Rust, using a predefined matrix, outperforms the others by a significant margin. 
+While C# is at a little disadvantage in extreme performance, the margin is not great. It takes into account that it was programmed with objects, and that it is not optimized with unusual things in C# like pointers. Long live C#. On the other hand, Rust with vectors outperforms GO, but not by much. However, Rust, using a predefined matrix, outperforms the others by a significant margin. 
 
 ### Epilogue
 

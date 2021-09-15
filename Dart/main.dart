@@ -1,6 +1,5 @@
 /*
 Traveling Salesman Problem 
-By: harveytriana@gmail.com
 
 RUN
 $ dart main.dart
@@ -26,19 +25,11 @@ var _permutation;
 var _minDistance;
 var _route;
 var _nodules;
-//
 var _swap;
 
 main(List<String> args) {
   print("Traveling Salesman Problem Exact algorithm");
-
-  // _data = [
-  //   [00, 10, 35, 30],
-  //   [10, 00, 30, 15],
-  //   [35, 30, 00, 30],
-  //   [30, 15, 30, 00],
-  // ];
-
+  // 13 nodes
   _data = [
     [0, 2451, 713, 1018, 1631, 1374, 2408, 213, 2571, 875, 1420, 2145, 1972],
     [2451, 0, 1745, 1524, 831, 1240, 959, 2596, 403, 1589, 1374, 357, 579],
@@ -54,6 +45,13 @@ main(List<String> args) {
     [2145, 357, 1453, 1280, 586, 887, 1114, 2300, 653, 1272, 1017, 0, 504],
     [1972, 579, 1260, 987, 371, 999, 701, 2099, 600, 1162, 1200, 504, 0],
   ];
+  // 4 nodes sample
+  // _data = [
+  //   [00, 10, 35, 30],
+  //   [10, 00, 30, 15],
+  //   [35, 30, 00, 30],
+  //   [30, 15, 30, 00],
+  // ];
 
   _depot = 0;
   _nodes = _data.length;
@@ -63,7 +61,6 @@ main(List<String> args) {
   _permutation = 1;
   _minDistance = 999999;
   _percent = 0;
-  //_now =
 
   List<int> a = [];
   for (int i = 0; i < _nodes; i++) {
@@ -78,6 +75,7 @@ main(List<String> args) {
   print("Nodules       : $_nodules");
 
   Stopwatch stopwatch = new Stopwatch()..start();
+  
   // recursive calculation
   getRoute(0, _nodulesCount);
 
@@ -89,7 +87,7 @@ main(List<String> args) {
 
 getRoute(int start, int end) {
   if (start == end - 1) {
-    // validate distance
+    // calculate distance
     // 1. boundaries A..N, N..A
     var s =
         _data[_depot][_nodules[0]] + _data[_nodules[_nodulesCount - 1]][_depot];
@@ -97,15 +95,11 @@ getRoute(int start, int end) {
     for (var i = 0; i < _nodulesCount - 1; i++) {
       s += _data[_nodules[i]][_nodules[i + 1]];
     }
-    // if (_percentSize == 0) {
-    //   print("partial $s $_nodules");
-    // }
     _permutation++;
     if (_minDistance > s) {
       // update minimun
       _minDistance = s;
       // let route
-      // print("** partial $s $_nodules");
       NodulesString();
     }
     if (_percentSize > 0) {

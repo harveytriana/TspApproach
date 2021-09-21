@@ -22,6 +22,7 @@ There are three contributions; FORTRAN, Dart, and Python. It is mentioned that t
 
 | Language     | Time 13 nodes, s |
 | ------------ | ---------------- |
+| C++          | 8.4              |
 | Rust         | 10               |
 | GO           | 17               |
 | C#           | 20               |
@@ -33,6 +34,12 @@ There are three contributions; FORTRAN, Dart, and Python. It is mentioned that t
 ## Conclusions
 
 While C# is at a little disadvantage in extreme performance, the margin is not great. It takes into account that it was programmed with objects, and that it is not optimized with unusual things in C# like pointers. Long live C#. On the other hand, Rust with vectors outperforms GO, but not by much. However, Rust, using a predefined matrix, outperforms the others by a significant margin. 
+
+There are collaborations. C++ proves to be the language that solves the same problem in less time.
+
+On the other hand, tests were made with C# integer of 32, and it improves performance by 15% (rounded values). GO also increases when using int32. However, with an integer of 32 the solution limit is reduced to 13 nodes or less.
+
+The study continues.
 
 ### Epilogue
 

@@ -1,6 +1,6 @@
 ﻿/*
 Traveling Salesman Problem 
-By: harveytriana@gmail.com
+Updte 15-09-21
 
 RUN
 $ dotnet run -c Release
@@ -10,11 +10,15 @@ Nodes         : 13
 Iterations    : 479,001,600
 Nodules       : 1 2 3 4 5 6 7 8 9 10 11 12
 ...
-Optimum route : 0 7 2 3 4 12 6 8 1 11 10 5  0
+Optimum route : 0 7 2 3 4 12 6 8 1 11 10 5 0
 Distance      : 7293
-Elapse Time   : 20.0720705 s
+- long type
+Elapse Time   : 20.4783 s
+- int type
+Elapse Time   : 17.3256 s
 */
 using System;
+using System.Text;
 
 class Program
 {
@@ -34,9 +38,18 @@ class Program
                 { 2145, 357, 1453, 1280, 586, 887, 1114, 2300, 653, 1272, 1017, 0, 504 },
                 { 1972, 579, 1260, 987, 371, 999, 701, 2099, 600, 1162, 1200, 504, 0 },
             };
+        //long[,] a = {
+        //    { 00, 10, 35, 30},
+        //    { 10, 00, 30, 15},
+        //    { 35, 30, 00, 30},
+        //    { 30, 15, 30, 00},
+        //};
 
         Console.WriteLine("Traveling Salesman Problem Exact algorithm");
-        new TspExact().GetOptimumRoute(a);
+        new TspExact().GetOptimusRoute(a);
+
+        Console.WriteLine("\nPause");
+        Console.ReadKey();
     }
 }
 
@@ -50,11 +63,11 @@ class TspExact
     long _percentSize;
     long _percent;
     long _permutation;
-    long _minDistance;
-    string _route;
+    long _distance;
     long[] _nodules;
+    StringBuilder _route;
 
-    public void GetOptimumRoute(long[,] data, long depot = 0) {
+    public void GetOptimusRoute(long[,] data, long depot = 0) {
         _data = data;
         _depot = depot;
         _nodes = _data.GetLength(0);
@@ -62,8 +75,8 @@ class TspExact
         _iterations = Factorial(_nodulesCount);
         _percentSize = _iterations / 100;
         _permutation = 1;
-        _minDistance = long.MaxValue;
-
+        _distance = long.MaxValue;
+        _route = new StringBuilder();
         var now = DateTime.Now;
 
         // arrangement of permutations
@@ -74,35 +87,37 @@ class TspExact
                 _nodules[j++] = i;
             }
         }
-        NodulesString();
-
         Console.WriteLine("Nodes         : {0}", _nodes);
         Console.WriteLine("Iterations    : {0:N0}", _iterations);
-        Console.WriteLine("Nodules       : {0}", _route);
+        Console.WriteLine("Nodules       : {0}", string.Join(" ", _nodules));
 
         // recursive calculation 
         GetRoute(0, _nodulesCount);
 
         Console.WriteLine("RESULT");
-        Console.WriteLine("Optimum route : {0} {1}{2}", _depot, _route, _depot);
-        Console.WriteLine("Distance      : {0}", _minDistance);
-        Console.WriteLine("Elapse Time   : {0} s", (DateTime.Now - now).TotalSeconds);
+        Console.WriteLine("Optimus route : {0} {1}{2}", _depot, _route.ToString(), _depot);
+        Console.WriteLine("Distance      : {0}", _distance);
+        Console.WriteLine("Elapse Time   : {0} s", (DateTime.Now - now).TotalSeconds.ToString("N4"));
     }
 
     void GetRoute(long start, long end) {
         if (start == end - 1) {
             // validate distance
             // 1. boundaries A..N, N..A
-            long s = _data[_depot, _nodules[0]] +
-                     _data[_nodules[_nodulesCount - 1], _depot];
+            var sum = _data[_depot, _nodules[0]] +
+                   _data[_nodules[_nodulesCount - 1], _depot];
             // 2. route
             for (long i = 0; i < _nodulesCount - 1; i++) {
-                s += _data[_nodules[i], _nodules[i + 1]];
+                sum += _data[_nodules[i], _nodules[i + 1]];
             }
             _permutation++;
-            if (_minDistance > s) {// update minimun
-                _minDistance = s;
-                NodulesString();
+            if (_distance > sum) {// update minimun
+                _distance = sum;
+                _route.Clear();
+                for (long i = 0; i < _nodulesCount; i++) {
+                    _route.Append(_nodules[i]);
+                    _route.Append(" ");
+                }
             }
             if (_percentSize > 0 && _permutation % _percentSize == 0) {
                 _percent += 1;
@@ -125,13 +140,6 @@ class TspExact
             return 1;
         else
             return number * Factorial(number - 1);
-    }
-
-    void NodulesString() {
-        _route = string.Empty;
-        for (long i = 0; i < _nodulesCount; i++) {
-            _route = _route + _nodules[i].ToString() + " ";
-        }
     }
 }
 

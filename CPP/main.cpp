@@ -3,7 +3,7 @@
 ----------------------------------------------------
 TSP execise
 RUN
-cargo run --release
+
 OUTPUT
 Nodes         : 13
 Iterations    : 479,001,600

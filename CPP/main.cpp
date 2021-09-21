@@ -3,6 +3,7 @@
 ----------------------------------------------------
 TSP execise
 RUN
+Writing in Visual Studio 2022, Release Mode, x64
 
 OUTPUT
 Nodes         : 13

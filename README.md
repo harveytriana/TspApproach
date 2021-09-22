@@ -30,8 +30,10 @@ There are three contributions; FORTRAN, Dart, and Python. It is mentioned that t
 | C#           | 20.0             |
 | Fortran      | 29.7           * |
 | Dart         | 35.0             |
-| Python (exe) | 157.7          * |
+| Python       | 157.7          * |
 |              |                  |
+
+> * *Collaboration with an expert in this language would be desirable*
 
 ## Conclusions
 

@@ -24,17 +24,17 @@ About Fortran, it is still an experiment, compiled with *gfortran (MinGW.org GCC
 
 In each code file, in the header I put a comment block with the results. I dealt with the problem with 13 nodes, taking the data sample that the [Google-COR-Tools](https://developers.google.com/optimization/routing/tsp) documentation shows.
 
-There are three contributions; FORTRAN, Dart, and Python. It is mentioned that there are several variables that could change the results, for example the compilation parameters. The results vary according to the machine where it is executed, but not the order. In summary of results is as follows:
+There are three contributions; FORTRAN, Dart, and Python. It is mentioned that there are several variables that could change the results, for example the compilation parameters. The results vary according to the machine where it is executed, but not the order. In summary, the same problem with 13 nodes, results is as follows:
 
-| Language     | Time 13 nodes, s |
-| ------------ | ---------------- |
-| C++          | 8.4              |
-| Rust         | 10.0             |
-| GO           | 16.6             |
-| C#           | 20.0             |
-| Fortran      | 29.7             |
-| Dart         | 35.0             |
-| Python       | 157.7            |
+| Language     | Elapsed time, s |
+| ------------ | --------------- |
+| C++          | 8.4             |
+| Rust         | 10.0            |
+| GO           | 16.6            |
+| C#           | 20.0            |
+| Fortran      | 29.7            |
+| Dart         | 35.0            |
+| Python       | 157.7           |
 
 ## Conclusions
 

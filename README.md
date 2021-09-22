@@ -35,7 +35,6 @@ There are three contributions; FORTRAN, Dart, and Python. It is mentioned that t
 | Fortran      | 29.7             |
 | Dart         | 35.0             |
 | Python       | 157.7            |
-|              |                  |
 
 ## Conclusions
 

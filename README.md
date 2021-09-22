@@ -55,8 +55,6 @@ By: Luis Harvey Triana Vega
 
 <small>P.S. Please add a star to this post if it is helpful to you.</small>
 
-*Update: 05-09-21*
-
 **Collaborations**
 
 You can publish a version in another language or start a discussion about something published. Email me to add you as Collaborator. 

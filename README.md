@@ -1,4 +1,4 @@
-# Rust, GO, and C# in the same Stage
+# Rust, GO, C#, Others in the same Stage
 
 ## Traveling Salesman Problem Exact algorithm
 
@@ -28,12 +28,12 @@ There are three contributions; FORTRAN, Dart, and Python. It is mentioned that t
 | Rust         | 10.0             |
 | GO           | 16.6             |
 | C#           | 20.0             |
-| Fortran      | 29.7           ° |
+| Fortran      | 29.7           Â° |
 | Dart         | 35.0             |
-| Python       | 157.7          ° |
+| Python       | 157.7          Â° |
 |              |                  |
 
-> ° *Collaboration with an expert in this language would be desirable*
+> Â° *Collaboration with an expert in this language would be desirable*
 
 ## Conclusions
 

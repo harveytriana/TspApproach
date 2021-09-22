@@ -107,9 +107,9 @@ int main()
 
 long factorial(long number)
 {
-	if (number < 2)
-		return(1);
-	return(number * factorial(number - 1));
+    if (number < 2)
+        return(1);
+    return(number * factorial(number - 1));
 }
 
 void getRoute(long start, long end)

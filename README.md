@@ -1,8 +1,10 @@
 # Rust, GO, C#, Others in the same Stage
 
-## Traveling Salesman Problem Exact algorithm
+## Traveling Salesman Problem Exact algorithm as Logic Tester
 
-*Update: 21-09-21*
+*Update: 22-09-21*
+
+I was curious to write a specific problem in multiple languages to check its performance. I wrote an approach to the classic [TSP](https://en.wikipedia.org/wiki/Travelling_salesman_problem). My algorithm is simple, it measures all permutations to arrive at an exact answer. Of course, due to the exponential nature of the problem, this is not the best solution. However, the goal is not to write a solution to this problem, that in fact a totally perfect one does not exist. The code I wrote is very effective, processing an average of 25 million calculations per second in C#. Initially write in C#, and I did the corresponding translation to Rust and GO. Then, through collaborations, I have added C++, Dart, Python, and the scary Fortran.
 
 Rust is very interesting. I have explored its syntax, and I really liked it. It is elegant and powerful, yet it is clearly orthodox with traditional programming, which puts a steep learning curve on it. Personally, I think that despite arousing interest in the world of programming, it is not going to advance in popularity at the levels of a Python or GO, the trend is for languages with natural, simple, human syntax.
 
@@ -10,11 +12,13 @@ On the other hand, GO is impressive in several aspects. The syntax is very flexi
 
 While C# is an extremely mature language, it covers all software development paradigms. It is my main language.
 
-I was curious to write and run into a specific problem in all three languages. I wrote an approach to the classic [TSP](https://en.wikipedia.org/wiki/Travelling_salesman_problem), without taking code from others. My algorithm is simple, measuring all the permutations to arrive at an exact answer. Of course, due to the exponential nature of the problem, this is not the best solution. However, the goal is not to write a solution to the problem (which in fact does not exist), but to measure the performance of three languages. The code I wrote is very effective, it processes an average of 25 million calculations per second.
+In any case, its majesty C ++ turns out to be the language that solves the same problem in less time. Followed closely by Rust, as expected.
+
+As a note, I bring up that tests were made with C# integer of 32 (*int* isntead of *long*), and it improves performance by ~15%. GO also increases when using int32. However, with an integer of 32 the solution limit is reduced to 13 nodes or less. 
 
 > It is worth clarifying that for a large number of nodes, perhaps more than 20, specialized algorithms have to be applied, for example, [Google-COR-Tools](https://developers.google.com/optimization/routing/tsp) or [Concorde TSP Solver](https://www.math.uwaterloo.ca/tsp/concorde.html) are suitable. The purpose of this post is not to resolve the TSP issue, per se, is just code.
 
-In a recent collaboration we wrote equivalents for C++, Fortran, Dart, and Python. C++ now tops the list of the language that solved the problem in less time, just 2 seconds ahead of Rust. Regarding Fortran, it is still an experiment, compiled with *gfortran (MinGW.org GCC-6.3.0-1)*, it is possible that there is a better compiler option.
+About Fortran, it is still an experiment, compiled with *gfortran (MinGW.org GCC-6.3.0-1)*, it is possible that there is a better compiler option.
 
 ## Results
 
@@ -38,10 +42,6 @@ There are three contributions; FORTRAN, Dart, and Python. It is mentioned that t
 ## Conclusions
 
 While C# is at a little disadvantage in extreme performance, the margin is not great. It takes into account that it was programmed with objects, and that it is not optimized with unusual things in C# like pointers. Long live C#. On the other hand, Rust with vectors outperforms GO, but not by much. However, Rust, using a predefined matrix, outperforms the others by a significant margin. 
-
-There are collaborations. C++ proves to be the language that solves the same problem in less time.
-
-On the other hand, tests were made with C# integer of 32, and it improves performance by 15% (rounded values). GO also increases when using int32. However, with an integer of 32 the solution limit is reduced to 13 nodes or less.
 
 The study continues.
 

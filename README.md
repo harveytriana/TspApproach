@@ -2,7 +2,7 @@
 
 ## Traveling Salesman Problem Exact algorithm
 
-*Update: 08-09-21*
+*Update: 21-09-21*
 
 Rust is very interesting. I have explored its syntax, and I really liked it. It is elegant and powerful, yet it is clearly orthodox with traditional programming, which puts a steep learning curve on it. Personally, I think that despite arousing interest in the world of programming, it is not going to advance in popularity at the levels of a Python or GO, the trend is for languages with natural, simple, human syntax.
 
@@ -12,7 +12,9 @@ While C# is an extremely mature language, it covers all software development par
 
 I was curious to write and run into a specific problem in all three languages. I wrote an approach to the classic [TSP](https://en.wikipedia.org/wiki/Travelling_salesman_problem), without taking code from others. My algorithm is simple, measuring all the permutations to arrive at an exact answer. Of course, due to the exponential nature of the problem, this is not the best solution. However, the goal is not to write a solution to the problem (which in fact does not exist), but to measure the performance of three languages. The code I wrote is very effective, it processes an average of 25 million calculations per second.
 
->It is worth clarifying that for a large number of nodes, perhaps more than 20, specialized algorithms have to be applied, for example, [Google-COR-Tools](https://developers.google.com/optimization/routing/tsp) or [Concorde TSP Solver](https://www.math.uwaterloo.ca/tsp/concorde.html) are suitable. The purpose of this post is not to resolve the TSP issue, per se, is just code.
+> It is worth clarifying that for a large number of nodes, perhaps more than 20, specialized algorithms have to be applied, for example, [Google-COR-Tools](https://developers.google.com/optimization/routing/tsp) or [Concorde TSP Solver](https://www.math.uwaterloo.ca/tsp/concorde.html) are suitable. The purpose of this post is not to resolve the TSP issue, per se, is just code.
+
+In a recent collaboration we wrote equivalents for C++, Fortran, Dart, and Python. C++ now tops the list of the language that solved the problem in less time, just 2 seconds ahead of Rust. Regarding Fortran, it is still an experiment, compiled with *gfortran (MinGW.org GCC-6.3.0-1)*, it is possible that there is a better compiler option.
 
 ## Results
 
@@ -23,12 +25,12 @@ There are three contributions; FORTRAN, Dart, and Python. It is mentioned that t
 | Language     | Time 13 nodes, s |
 | ------------ | ---------------- |
 | C++          | 8.4              |
-| Rust         | 10               |
-| GO           | 17               |
-| C#           | 20               |
-| Fortran      | 30               |
-| Dart         | 35               |
-| Python (exe) | 157              |
+| Rust         | 10.0             |
+| GO           | 16.6             |
+| C#           | 20.0             |
+| Fortran      | 29.7           * |
+| Dart         | 35.0             |
+| Python (exe) | 157.7          * |
 |              |                  |
 
 ## Conclusions
@@ -46,6 +48,7 @@ The study continues.
 In the algorithm that I programmed there is a flat in that the number of effective permutations is actually half. However, due to the flow of the permutation calculation, it is difficult to filter which ones are repeated. In other words, the distance the traveler takes to travel a route is the same back and forth, that is why one of the combinations should be discarded. There would be several ways to solve it, but the cost in code would involve high memory consumption and possibly the final time is longer. The programmed algorithm consumes a very small amount of memory, it does not remember anything, it only goes forward. I leave this concern, if anyone wants to improve it.
 
 ---
+
 By: Luis Harvey Triana Vega
 
 <small>P.S. Please add a star to this post if it is helpful to you.</small>

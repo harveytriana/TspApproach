@@ -28,12 +28,12 @@ There are three contributions; FORTRAN, Dart, and Python. It is mentioned that t
 | Rust         | 10.0             |
 | GO           | 16.6             |
 | C#           | 20.0             |
-| Fortran      | 29.7           * |
+| Fortran      | 29.7           ° |
 | Dart         | 35.0             |
-| Python       | 157.7          * |
+| Python       | 157.7          ° |
 |              |                  |
 
-> * *Collaboration with an expert in this language would be desirable*
+> ° *Collaboration with an expert in this language would be desirable*
 
 ## Conclusions
 

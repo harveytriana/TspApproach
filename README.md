@@ -59,4 +59,4 @@ By: Luis Harvey Triana Vega
 
 **Collaborations**
 
-You are welcome to publish a version in another language. For example, the C++ equivalent would be desirable. 
+You are welcome to publish a version in another language. Email me to add you as Collaborator. 

@@ -129,7 +129,7 @@ function swap(i, j) {
 }
 
 function factorial(n) {
-    var f = 1;
+    let f = 1;
     for (let i = 1; i <= n; i++) {
         f = f * i;
     }

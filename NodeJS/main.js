@@ -80,12 +80,12 @@ function main() {
     // recursive calculation
     getRoute(0, _nodulesCount);
 
-    e = (new Date().getTime() - now) / 1000.0;
+    elapseTime = (new Date().getTime() - now) / 1000.0;
 
     console.log("RESULT")
     console.log("Optimum route : ", _route);
     console.log("Distance      : ", _minDistance);
-    console.log("Elapse time   : ", e, " s");
+    console.log("Elapse time   : ", elapseTime, " s");
 }
 
 function getRoute(start, end) {
@@ -129,7 +129,7 @@ function swap(i, j) {
 }
 
 function factorial(n) {
-    var f = 1;
+    let f = 1;
     for (let i = 1; i <= n; i++) {
         f = f * i;
     }

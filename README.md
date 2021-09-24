@@ -10,7 +10,7 @@ Rust is very interesting. I have explored its syntax, and I really liked it. It 
 
 On the other hand, GO is impressive in several aspects. The syntax is very flexible and easy to learn, and at the same time it has an enviable performance. But not everything is a paradise in GO, some experts highlight some flaws of its design such as lack of function overload, lack of generics, lack of dependency injection (unforgivable for .NET programmers).
 
-In any case, its majesty C++ turns out to be the language that solves the same problem in less time. Followed closely by Rust, as expected. The module in C++ was written and compiled with Visual Studio 2022, x64, and running in Release mode, of course.
+In any case, its majesty C++ turns out to be the language that solves the same problem in less time, followed closely by Rust. The module in C++ was written and compiled with Visual Studio 2022, x64, and running in Release mode, of course.
 
 As a note, I bring up that tests were made with C# integer of 32 (*int* isntead of *long*), and it improves performance by ~15%. GO also increases when using int32. However, with an integer of 32 the solution limit is reduced to 13 nodes or less. 
 
@@ -35,9 +35,7 @@ There are contributions; FORTRAN, Dart, and Python. It is mentioned that there a
 
 Of course, the calculated times can vary slightly if you run on another machine, however, the ratio should be practically constant.
 
-## Conclusions
-
-While C# is at a little disadvantage in extreme performance, the margin is not great. It takes into account that it was programmed with objects, and that it is not optimized with unusual things in C# like pointers. Long live C#. On the other hand, Rust with vectors outperforms GO, but not by much. However, Rust, using a predefined matrix, outperforms the others by a significant margin, except C++. 
+As theoretically expected, C++ is the language that solves the problem in less time. On the other hand, Rust proves to be the powerful language that it is. While C# is at a little disadvantage in extreme performance, the margin is not great.  
 
 About Fortran, it is still an experiment, the file was compiled with *gfortran MinGW-W64 8.1.0*, it is possible that there is a better compiler option; the result is certainly unexpected.
 

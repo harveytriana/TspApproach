@@ -22,6 +22,8 @@ In each code file, in the header I put a comment block with the results. I dealt
 
 There are contributions; FORTRAN, Dart, and Python. It is mentioned that there are several variables that could change the results, for example the compilation parameters. The results vary according to the machine where it is executed, but not the order. In summary, the same problem, running in the same machine, with 13 nodes, the results is as follows:
 
+| RESUME                         |
+| ------------------------------ |   
 | Language     | Elapsed time, s |
 | ------------ | --------------- |
 | C++          | 8.4             |

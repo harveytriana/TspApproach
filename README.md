@@ -31,13 +31,15 @@ There are contributions; FORTRAN, Dart, and Python. It is mentioned that there a
 | NodeJS       | 27.1            |
 | Fortran      | 29.7            |
 | Dart         | 35.0            |
-| Python       | 157.7 ?         |
+| Python       | 157.7           |
 
 Of course, the calculated times can vary slightly if you run on another machine, however, the ratio should be practically constant.
 
 As theoretically expected, C++ is the language that solves the problem in less time. On the other hand, Rust proves to be the powerful language that it is. While C# is at a little disadvantage in extreme performance, the margin is not great.  
 
 About Fortran, it is still an experiment, the file was compiled with *gfortran MinGW-W64 8.1.0*, it is possible that there is a better compiler option; the result is certainly unexpected.
+
+About Python, an executable was created from the Script using Pyinstaller, however the performance is still far from the others. I would like a Python expert to review the code, it may be possible to write better code and improve the results.
 
 The study continues.
 

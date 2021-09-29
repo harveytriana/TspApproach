@@ -27,11 +27,11 @@ RESUME
 | Language     | Elapsed time, s |
 | ------------ | --------------- |
 | C++          | 7.9             |
+| Fortran      | 8.0             |
 | Rust         | 10.0            |
 | GO           | 16.6            |
 | C#           | 20.0            |
 | NodeJS       | 27.1            |
-| Fortran      | 29.7            |
 | Dart         | 35.0            |
 | Python       | 157.7           |
 
@@ -39,7 +39,13 @@ Of course, the calculated times can vary slightly if you run on another machine,
 
 As theoretically expected, C++ is the language that solves the problem in less time. On the other hand, Rust proves to be the powerful language that it is. While C# is at a little disadvantage in extreme performance, the margin is not great.  
 
-About Fortran, it is still an experiment, the file was compiled with *gfortran MinGW-W64 8.1.0*, it is possible that there is a better compiler option; the result is certainly unexpected.
+About Fortran, initially I compiled with *gfortran MinGW-W64 8.1.0*, with uncertain results, it took 29.7 seconds. Tried applying the available options for optimization with the same poor result to be Fortran.
+
+> MinGW gfortran is an easy compiler with which you can run Fortran programs from a terminal, but the result is disappointing.
+
+I recently used Intel's developer tools, Intel oneApi©, certainly advanced, with the final result shown in the table, now fortran is at the same level as C++.
+
+> With Intel oneApi© and Visual Studio (for now 2019) we can develop Fortran programs with a professional IDE.
 
 About Python, an executable was created from the Script using Pyinstaller, however the performance is still far from the others. I would like a Python expert to review the code, it may be possible to write better code and improve the results.
 

@@ -1,4 +1,4 @@
-# REQUIREMENTS
+REQUIREMENTS
 
 Intel® oneAPI HPC Toolkit
 Visual Studio 2019

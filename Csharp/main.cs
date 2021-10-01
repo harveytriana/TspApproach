@@ -18,6 +18,7 @@ Elapse Time   : 20.4783 s
 Elapse Time   : 17.3256 s
 */
 using System;
+using System.Runtime.InteropServices;
 using System.Text;
 
 class Program
@@ -57,11 +58,11 @@ class Program
     }
 }
 
-class TspExact
+unsafe class TspExact
 {
     const int DataWidth = 13;
     const int DataLength = 13;
-    long[] _data;
+    long* _data;
     long _depot;
     long _nodes;
     long _nodulesCount;
@@ -75,7 +76,8 @@ class TspExact
 
     public void GetOptimusRoute(long[] data, long depot = 0)
     {
-        _data = data;
+        var dataPinned = GCHandle.Alloc(data, GCHandleType.Pinned);
+        _data = (long*)dataPinned.AddrOfPinnedObject();
         _depot = depot;
         _nodes =DataLength;
         _nodulesCount = _nodes - 1;

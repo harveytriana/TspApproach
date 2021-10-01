@@ -15,6 +15,7 @@ Distance      : 7293
 Elapse Time   : 16.95 s
 */
 using System;
+using System.Runtime.InteropServices;
 using System.Text;
 //using TspApproach;
 
@@ -47,11 +48,11 @@ class TspInt32
     }
 }
 
-class TspExactInt32
+unsafe class TspExactInt32
 {
     const int DataWidth = 13;
     const int DataLength = 13;
-    int[] _data;
+    int* _data;
     int _depot;
     int _nodes;
     int _nodulesCount;
@@ -72,8 +73,8 @@ class TspExactInt32
             return;
         }
 
-        _data = data;
-        _depot = depot;
+        var dataPinned = GCHandle.Alloc(data, GCHandleType.Pinned);
+        _data = (int*)dataPinned.AddrOfPinnedObject(); _depot = depot;
         _nodulesCount = _nodes - 1;
         _iterations = Factorial(_nodulesCount);
         _percentSize = _iterations / 100;

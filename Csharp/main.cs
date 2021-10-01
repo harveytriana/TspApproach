@@ -18,6 +18,7 @@ Elapse Time   : 20.4783 s
 Elapse Time   : 17.3256 s
 */
 using System;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -114,6 +115,7 @@ unsafe class TspExact
         Console.WriteLine("Elapse Time   : {0} s", (DateTime.Now - now).TotalSeconds.ToString("N4"));
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     void GetRoute(long start, long end)
     {
         if (start == end - 1)

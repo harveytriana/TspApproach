@@ -15,6 +15,7 @@ Distance      : 7293
 Elapse Time   : 16.95 s
 */
 using System;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 //using TspApproach;
@@ -109,6 +110,7 @@ unsafe class TspExactInt32
         Console.WriteLine("Elapse Time   : {0} ", ElapseTime());
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     void GetRoute(int start, int end)
     {
         if (start == end - 1)

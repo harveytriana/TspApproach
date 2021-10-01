@@ -80,7 +80,7 @@ unsafe class TspExactInt32
         _percentSize = _iterations / 100;
         _permutation = 1;
         _distance = int.MaxValue;
-        _route = new StringBuilder();
+        _route = new StringBuilder(256);
 
         // arrangement of permutations
         var nodules = new int[_nodulesCount];

@@ -85,8 +85,7 @@ unsafe class TspExact
         _percentSize = _iterations / 100;
         _permutation = 1;
         _distance = long.MaxValue;
-        _route = new StringBuilder();
-        var now = DateTime.Now;
+        _route = new StringBuilder(256);
 
         // arrangement of permutations
         var nodules = new long[_nodulesCount];
@@ -103,6 +102,8 @@ unsafe class TspExact
         Console.WriteLine("Nodes         : {0}", _nodes.ToString());
         Console.WriteLine("Iterations    : {0:N0}", _iterations.ToString());
         Console.WriteLine("Nodules       : {0}", string.Join(" ", nodules));
+
+        var now = DateTime.Now;
 
         // recursive calculation 
         GetRoute(0, _nodulesCount);

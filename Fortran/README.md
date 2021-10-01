@@ -9,7 +9,8 @@ After install, oneAPI-Base Toolkit and oneAPI-HPC Toolkit search FortranCompiler
 
 ![Fortran + Visual Studio](https://github.com/harveytriana/TspApproach/blob/master/Fortran/vs_ifort.png)
 
-Send me an email to harveytriana@gmail.com if you have questions
+> To obtain the maximum performance, the program must be run in Release mode.
+
 
 
 

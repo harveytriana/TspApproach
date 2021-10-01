@@ -2,7 +2,7 @@
 
 ***Traveling Salesman Problem Exact algorithm as Logic Tester***
 
-*Update: 29-09-21*
+*Update: 01-10-21*
 
 I was curious to write a specific problem in multiple languages to check its performance. I wrote an approach to the classic [TSP](https://en.wikipedia.org/wiki/Travelling_salesman_problem). My algorithm is simple, it measures all permutations to arrive at an exact answer. Of course, due to the exponential nature of the problem, this is not the best general solution. However, the goal is not to write a solution to this problem, that in fact a totally perfect one does not exist. The code I wrote is very effective, processing an average of 25 million calculations per second in C#. Initially write in C#, and I did the corresponding translation to Rust and GO. Then, through collaborations, I have added C++, Dart, Python, the scary Fortran, and recently JavaScript in the NodeJS environment.
 
@@ -37,7 +37,7 @@ RESUME
 
 Of course, the calculated times can vary slightly if you run on another machine, however, the ratio should be practically constant.
 
-As theoretically expected, C++ is the language that solves the problem in less time. On the other hand, Rust proves to be the powerful language that it is. While C# is at a little disadvantage in extreme performance, the margin is not great.  
+As theoretically expected, C and C++ are the languages that solves the problem in less time. On the other hand, Rust proves to be the powerful language that it is. While C# is at a little disadvantage in extreme performance, the margin is not great.  
 
 About Fortran, initially I compiled with *gfortran MinGW-W64 8.1.0*, with uncertain results, it took 29.7 seconds. Tried applying the available options for optimization with the same poor result to be Fortran.
 

@@ -61,7 +61,7 @@ unsafe class TspExactInt32
     int _percent;
     int _permutation;
     int _distance;
-    int[] _nodules;
+    int* _nodules;
     StringBuilder _route;
     DateTime _now;
 
@@ -83,7 +83,9 @@ unsafe class TspExactInt32
         _route = new StringBuilder();
 
         // arrangement of permutations
-        _nodules = new int[_nodulesCount];
+        var nodules = new int[_nodulesCount];
+        var nodulesPinned = GCHandle.Alloc(nodules, GCHandleType.Pinned);
+        _nodules = (int*)nodulesPinned.AddrOfPinnedObject();
         int j = 0;
         for (int i = 0; i < _nodes; i++)
         {
@@ -94,7 +96,7 @@ unsafe class TspExactInt32
         }
         Console.WriteLine("Nodes         : {0}", _nodes);
         Console.WriteLine("Iterations    : {0:N0}", _iterations);
-        Console.WriteLine("Nodules       : {0}", string.Join(" ", _nodules));
+        Console.WriteLine("Nodules       : {0}", string.Join(" ", nodules));
 
         _now = DateTime.Now;
 

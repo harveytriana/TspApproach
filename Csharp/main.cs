@@ -71,7 +71,7 @@ unsafe class TspExact
     long _percent;
     long _permutation;
     long _distance;
-    long[] _nodules;
+    long* _nodules;
     StringBuilder _route;
 
     public void GetOptimusRoute(long[] data, long depot = 0)
@@ -79,7 +79,7 @@ unsafe class TspExact
         var dataPinned = GCHandle.Alloc(data, GCHandleType.Pinned);
         _data = (long*)dataPinned.AddrOfPinnedObject();
         _depot = depot;
-        _nodes =DataLength;
+        _nodes = DataLength;
         _nodulesCount = _nodes - 1;
         _iterations = Factorial(_nodulesCount);
         _percentSize = _iterations / 100;
@@ -89,7 +89,9 @@ unsafe class TspExact
         var now = DateTime.Now;
 
         // arrangement of permutations
-        _nodules = new long[_nodulesCount];
+        var nodules = new long[_nodulesCount];
+        var nodulesPinned = GCHandle.Alloc(nodules, GCHandleType.Pinned);
+        _nodules = (long*)nodulesPinned.AddrOfPinnedObject();
         long j = 0;
         for (long i = 0; i < _nodes; i++)
         {
@@ -100,7 +102,7 @@ unsafe class TspExact
         }
         Console.WriteLine("Nodes         : {0}", _nodes);
         Console.WriteLine("Iterations    : {0:N0}", _iterations);
-        Console.WriteLine("Nodules       : {0}", string.Join(" ", _nodules));
+        Console.WriteLine("Nodules       : {0}", string.Join(" ", nodules));
 
         // recursive calculation 
         GetRoute(0, _nodulesCount);

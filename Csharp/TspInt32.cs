@@ -16,7 +16,7 @@ Elapse Time   : 16.95 s
 */
 using System;
 using System.Text;
-using TspApproach;
+//using TspApproach;
 
 class TspInt32
 {

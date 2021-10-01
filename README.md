@@ -26,6 +26,7 @@ RESUME
 
 | Language     | Elapsed time, s |
 | ------------ | --------------- |
+| C            | 7.2             |
 | C++          | 7.9             |
 | Fortran      | 8.0             |
 | Rust         | 10.0            |

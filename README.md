@@ -10,7 +10,7 @@ Rust is very interesting. I have explored its syntax, and I really liked it. It 
 
 On the other hand, GO is impressive in several aspects. The syntax is very flexible and easy to learn, and at the same time it has an enviable performance. But not everything is a paradise in GO, some experts highlight some flaws of its design such as lack of function overload, lack of generics, lack of dependency injection (unforgivable for .NET programmers).
 
-In any case, its majesty C++ turns out to be the language that solves the same problem in less time, followed closely by Rust. The module in C++ was written and compiled with Visual Studio 2022, x64, and running in Release mode, of course.
+In any case, its majesty C turns out to be the language that solves the same problem in less time, followed closely by C++ and Fortran. 
 
 As a note, I bring up that tests were made with C# integer of 32 (*int* isntead of *long*), and it improves performance by ~15%. GO also increases when using int32. However, with an integer of 32 the solution limit is reduced to 13 nodes or less. 
 

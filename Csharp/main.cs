@@ -100,16 +100,16 @@ unsafe class TspExact
                 _nodules[j++] = i;
             }
         }
-        Console.WriteLine("Nodes         : {0}", _nodes);
-        Console.WriteLine("Iterations    : {0:N0}", _iterations);
+        Console.WriteLine("Nodes         : {0}", _nodes.ToString());
+        Console.WriteLine("Iterations    : {0:N0}", _iterations.ToString());
         Console.WriteLine("Nodules       : {0}", string.Join(" ", nodules));
 
         // recursive calculation 
         GetRoute(0, _nodulesCount);
 
         Console.WriteLine("RESULT");
-        Console.WriteLine("Optimus route : {0} {1}{2}", _depot, _route.ToString(), _depot);
-        Console.WriteLine("Distance      : {0}", _distance);
+        Console.WriteLine("Optimus route : {0} {1}{2}", _depot.ToString(), _route.ToString(), _depot.ToString());
+        Console.WriteLine("Distance      : {0}", _distance.ToString());
         Console.WriteLine("Elapse Time   : {0} s", (DateTime.Now - now).TotalSeconds.ToString("N4"));
     }
 
@@ -140,7 +140,7 @@ unsafe class TspExact
             if (_percentSize > 0 && _permutation % _percentSize == 0)
             {
                 _percent += 1;
-                Console.WriteLine("Permutations: {0} %", _percent);
+                Console.WriteLine("Permutations: {0} %", _percent.ToString());
             }
         }
         else

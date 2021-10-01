@@ -94,8 +94,8 @@ unsafe class TspExactInt32
                 _nodules[j++] = i;
             }
         }
-        Console.WriteLine("Nodes         : {0}", _nodes);
-        Console.WriteLine("Iterations    : {0:N0}", _iterations);
+        Console.WriteLine("Nodes         : {0}", _nodes.ToString());
+        Console.WriteLine("Iterations    : {0:N0}", _iterations.ToString());
         Console.WriteLine("Nodules       : {0}", string.Join(" ", nodules));
 
         _now = DateTime.Now;
@@ -104,8 +104,8 @@ unsafe class TspExactInt32
         GetRoute(0, _nodulesCount);
 
         Console.WriteLine("RESULT");
-        Console.WriteLine("Optimus route : {0} {1}{2}", _depot, _route.ToString(), _depot);
-        Console.WriteLine("Distance      : {0}", _distance);
+        Console.WriteLine("Optimus route : {0} {1}{2}", _depot.ToString(), _route.ToString(), _depot.ToString());
+        Console.WriteLine("Distance      : {0}", _distance.ToString());
         Console.WriteLine("Elapse Time   : {0} ", ElapseTime());
     }
 
@@ -136,7 +136,7 @@ unsafe class TspExactInt32
             if (_percentSize > 0 && _permutation % _percentSize == 0)
             {
                 _percent += 1;
-                Console.WriteLine("Permutations: {0} % {1}", _percent, ElapseTime());
+                Console.WriteLine("Permutations: {0} % {1}", _percent.ToString(), ElapseTime());
             }
         }
         else

@@ -49,7 +49,7 @@ I recently used Intel's developer tools, Intel oneApi©, certainly advanced, wit
 
 > With Intel oneApi© and Visual Studio (for now 2019) we can develop Fortran programs with a professional IDE.
 
-(1) By virtue of excellent collaboration, applying advanced optimization techniques in C#, the result of this can be improved. However, the application of these techniques is heterodox to normal coding in C#. Read the README document in the corresponding folder for more information. Thanks Tedd.
+(1) By virtue of excellent collaboration, applying advanced optimization techniques in C#, the result of this can be improved. However, the application of these techniques is heterodox to normal coding in C#. Read the README document in the corresponding folder for more information. Thanks Tedd; https://github.com/tedd.
 
 (2) Standard coding in C#
 

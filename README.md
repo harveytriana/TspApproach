@@ -32,7 +32,6 @@ RESUME
 | Rust         | 10.0            |
 | C#           | 14.5 (1)        |
 | GO           | 16.6            |
-| C#           | 20.0 (2)        |
 | NodeJS       | 27.1            |
 | Dart         | 35.0            |
 | Python       | 157.0 (3)       |
@@ -49,9 +48,7 @@ I recently used Intel's developer tools, Intel oneApi©, certainly advanced, wit
 
 > With Intel oneApi© and Visual Studio (for now 2019) we can develop Fortran programs with a professional IDE.
 
-(1) By virtue of excellent collaboration, applying advanced optimization techniques in C#, the result of this can be improved. However, the application of these techniques is heterodox to normal coding in C#. The result in the table corresponds to long* (for int* the time is around 12.2 s). Read the README document in the corresponding folder for more information. Thanks Tedd; https://github.com/tedd.
-
-(2) Standard C# code (int64). 
+(1) By virtue of excellent collaboration, applying advanced optimization techniques in C#, the result of this can be improved. However, the application of these techniques is heterodox to normal coding in C#. The result in the table corresponds to long* (for int* the time is around 12.2 s). Read the README document in the corresponding folder for more information. Thanks Tedd; https://github.com/tedd. For standard C# code, elapse time for int64 is ~20 s, and int32 ~17 s.
 
 (3) About Python, an executable was created from the Script using Pyinstaller, however the performance is still far from the others. I would like a Python expert to review the code or other compilation tool, it may be possible to write better code and improve the results.
 

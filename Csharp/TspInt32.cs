@@ -147,12 +147,10 @@ unsafe class TspExactInt32
             for (var i = start; i < end; i++)
             {
                 // swap
-                // Swap(start, i);
                 (_nodules[start], _nodules[i]) = (_nodules[i], _nodules[start]);
                 // permute
                 GetRoute(start + 1, end);
                 // swap
-                // Swap(start, i);
                 (_nodules[start], _nodules[i]) = (_nodules[i], _nodules[start]);
             }
         }

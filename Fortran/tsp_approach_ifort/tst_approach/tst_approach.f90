@@ -2,7 +2,7 @@
 !
 !  PROGRAM: tst_approach
 !
-!  PURPOSE:  Entry point for the console application.
+!  PURPOSE: Take part in a performance measurement study on a computer problem
 !
 !****************************************************************************
 ! Traveling Salesman Problem Exact algorithm

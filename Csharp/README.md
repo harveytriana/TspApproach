@@ -8,7 +8,7 @@ Edit main.cs to modify which test to run.
 
 Switch from .Net 5.0 to .Net 6.0 rc1 made test go 4.6% faster.
 
-The standard encoding can be found in the Standard folder, which it use as a namespace.
+The standard C# code can be found in the Standard folder, which it use as a namespace.
 
 ## Array access
 

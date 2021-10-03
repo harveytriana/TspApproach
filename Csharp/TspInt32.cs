@@ -63,7 +63,7 @@ unsafe class TspExactInt32
     int _distance;
     int* _nodules;
     StringBuilder _route;
-    Stopwatch _now = new();
+    readonly Stopwatch _now = new();
 
     public void GetOptimusRoute(int[] data, int depot = 0)
     {

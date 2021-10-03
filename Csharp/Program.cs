@@ -30,10 +30,11 @@ class Program
     {
         // Try to get a stable reading on every pass by maxing priority
         //System.Diagnostics.Process.GetCurrentProcess().PriorityClass = System.Diagnostics.ProcessPriorityClass.RealTime;
-
         //BenchmarkRunner.Run<tsp.Improvements.Benchmark>();
-
         //return;
+
+        TspInt32.Run();
+        return;
 
         long[] a = {
                  0, 2451, 713, 1018, 1631, 1374, 2408, 213, 2571, 875, 1420, 2145, 1972,

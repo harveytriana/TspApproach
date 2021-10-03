@@ -51,7 +51,7 @@ I recently used Intel's developer tools, Intel oneApi©, certainly advanced, wit
 
 (1) By virtue of excellent collaboration, applying advanced optimization techniques in C#, the result of this can be improved. However, the application of these techniques is heterodox to normal coding in C#. The result in the table corresponds to long*, for int* the time is around 12.2 s. Read the README document in the corresponding folder for more information. Thanks Tedd; https://github.com/tedd.
 
-(2) Standard coding in C# (int64). 
+(2) Standard C# code (int64). 
 
 (3) About Python, an executable was created from the Script using Pyinstaller, however the performance is still far from the others. I would like a Python expert to review the code or other compilation tool, it may be possible to write better code and improve the results.
 

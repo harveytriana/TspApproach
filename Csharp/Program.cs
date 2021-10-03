@@ -12,10 +12,10 @@ Nodules       : 1 2 3 4 5 6 7 8 9 10 11 12
 ...
 Optimum route : 0 7 2 3 4 12 6 8 1 11 10 5 0
 Distance      : 7293
-- long type
-Elapse Time   : 20.4783 s
-- int type
-Elapse Time   : 17.3256 s
+- long* type
+Elapse Time   : 14.50 s
+- int* type
+Elapse Time   : 12.20 s
 */
 using System;
 using System.Runtime.CompilerServices;
@@ -28,13 +28,20 @@ class Program
 {
     public static void Main()
     {
+        // C# Int32 Optimized
+        //TspInt32.Run();
+        //return;
+
+        // C# Standard
+        // new Standard.TspInt64().Run();
+        // OR
+        // new Standard.TspInt32().Run();
+        // return;
+
         // Try to get a stable reading on every pass by maxing priority
         //System.Diagnostics.Process.GetCurrentProcess().PriorityClass = System.Diagnostics.ProcessPriorityClass.RealTime;
         //BenchmarkRunner.Run<tsp.Improvements.Benchmark>();
         //return;
-
-        TspInt32.Run();
-        return;
 
         long[] a = {
                  0, 2451, 713, 1018, 1631, 1374, 2408, 213, 2571, 875, 1420, 2145, 1972,
@@ -130,7 +137,7 @@ unsafe class TspExact
             // validate distance
             // 1. boundaries A..N, N..A
             var sum = _data[_depot * DataWidth + _nodules[0]] +
-                   _data[_nodules[_nodulesCount - 1] * DataWidth + _depot];
+                      _data[_nodules[_nodulesCount - 1] * DataWidth + _depot];
             // 2. route
             for (long i = 0; i < _nodulesCount - 1; i++)
             {
@@ -144,7 +151,7 @@ unsafe class TspExact
                 for (long i = 0; i < _nodulesCount; i++)
                 {
                     _route.Append(_nodules[i]);
-                    _route.Append(" ");
+                    _route.Append(' ');
                 }
             }
             if (_percentSize > 0 && _permutation % _percentSize == 0)

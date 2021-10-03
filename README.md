@@ -2,7 +2,7 @@
 
 ***Traveling Salesman Problem Exact algorithm as Logic Tester***
 
-*Update: 01-10-21*
+*Update: 03-10-21*
 
 I was curious to write a specific problem in multiple languages to check its performance. I wrote an approach to the classic [TSP](https://en.wikipedia.org/wiki/Travelling_salesman_problem). My algorithm is simple, it measures all permutations to arrive at an exact answer. Of course, due to the exponential nature of the problem, this is not the best general solution. However, the goal is not to write a solution to this problem, that in fact a totally perfect one does not exist. The code I wrote is very effective, processing an average of 25 million calculations per second in C#. Initially write in C#, and I did the corresponding translation to Rust and GO. Then, through collaborations, I have added C++, Dart, Python, the scary Fortran, and recently JavaScript in the NodeJS environment.
 
@@ -30,11 +30,12 @@ RESUME
 | C++          | 7.9             |
 | Fortran      | 8.0             |
 | Rust         | 10.0            |
+| C#           | 14.8 (1)        |
 | GO           | 16.6            |
-| C#           | 20.0            |
+| C#           | 20.0 (2)        |
 | NodeJS       | 27.1            |
 | Dart         | 35.0            |
-| Python       | 157.7           |
+| Python       | 157.0 (3)       |
 
 Of course, the calculated times can vary slightly if you run on another machine, however, the ratio should be practically constant.
 
@@ -48,7 +49,11 @@ I recently used Intel's developer tools, Intel oneApi©, certainly advanced, wit
 
 > With Intel oneApi© and Visual Studio (for now 2019) we can develop Fortran programs with a professional IDE.
 
-About Python, an executable was created from the Script using Pyinstaller, however the performance is still far from the others. I would like a Python expert to review the code or other compilation tool, it may be possible to write better code and improve the results.
+(1) By virtue of excellent collaboration, applying advanced optimization techniques in C#, the result of this can be improved. However, the application of these techniques is heterodox to normal coding in C#. Read the README document for more information. Thanks Tedd.
+
+(2) Standard coding in C#
+
+(3) About Python, an executable was created from the Script using Pyinstaller, however the performance is still far from the others. I would like a Python expert to review the code or other compilation tool, it may be possible to write better code and improve the results.
 
 The study continues.
 

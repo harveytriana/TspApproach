@@ -116,7 +116,7 @@ unsafe class TspExactInt32
             // validate distance
             // 1. boundaries A..N, N..A
             var sum = _data[_depot * DataWidth + _nodules[0]] +
-                   _data[_nodules[_nodulesCount - 1] * DataWidth + _depot];
+                      _data[_nodules[_nodulesCount - 1] * DataWidth + _depot];
             // 2. route
             for (int i = 0; i < _nodulesCount - 1; i++)
             {

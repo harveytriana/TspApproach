@@ -32,7 +32,7 @@ Then I work with Intel's developer tools, Intel oneApi©, certainly advanced, wi
 
 ## Results
 
-Of course, the calculated times can vary slightly if you run on another machine, however, the ratio should be practically constant.
+Of course, the calculated times can vary slightly if you run on another machine, however, the ratio should be practically constant. Here are the results with 13 nodes. Time increases exponentially according to the number of nodes.
 
 | Language     | Elapsed time, s     |
 | ------------ | ------------------- |

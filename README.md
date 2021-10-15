@@ -66,8 +66,6 @@ In the algorithm that I programmed there is a flat in that the number of effecti
 
 By: Luis Harvey Triana Vega
 
-<small>P.S. Please add a star to this post if it is helpful to you.</small>
-
 **Collaborations**
 
 You can publish a version in another language or start a discussion about something published. 

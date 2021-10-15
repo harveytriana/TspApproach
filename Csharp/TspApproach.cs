@@ -30,11 +30,11 @@ class TspApproach
              1972, 579, 1260, 987, 371, 999, 701, 2099, 600, 1162, 1200, 504, 0,
         };
 
-        new TspExactInt32().GetOptimusRoute(a);
+        new TspApproachUsafe().GetOptimusRoute(a);
     }
 }
 
-unsafe class TspExactInt32
+unsafe class TspApproachUsafe
 {
     const int DataWidth = 13;
     const int DataLength = 13;

@@ -4,7 +4,11 @@
 
 *Update: 15-10-21*
 
-It is oriented to write the equivalent of the same code as far as possible for a classic problem of extreme calculus, and it runs on the same machine. The idea is to measure the performance trend in each case. This is an approach to the classic [TSP](https://en.wikipedia.org/wiki/Travelling_salesman_problem). My algorithm is simple, it measures all permutations to arrive at an exact answer. Of course, due to the exponential nature of the problem, this is not the best general solution. However, the goal is not to write a solution to this problem, that in fact a totally perfect one does not exist. The code I wrote is very effective, processing an average of 30 million calculations per second in C#. Initially write in C#, and I did the corresponding translation to other languages. Then, through collaborations, I have added C++, Dart, Python, the scary Fortran, JavaScript in the NodeJS environment. Recently, a collaboration was made for optimized coding in C#. The final language I added is Java.
+## Resume
+
+It is oriented to write the equivalent of the same algorithm, as far as possible, to solve a classic extreme calculation problem, and to measure the performance trend in several programming languages. To be more precise, they run on the same physical infrastructure. This is a classic approach [TSP](https://en.wikipedia.org/wiki/Travelling_salesman_problem). My algorithm is simple, it measures all permutations to arrive at an exact answer. Of course, due to the exponential nature of the problem, this is not a general solution. However, the goal is not to write a point solution to this problem, but to measure performance. The code I wrote is very effective, processing an average of 30 million calculations per second in C#. Gradually translations into other languages and optimizations have been made, including contributions.
+
+## Comments
 
 Rust is very interesting. I have explored its syntax, and I really liked it. It is elegant and powerful, yet it is clearly «heterodox» with traditional programming, which puts a steep learning curve on it. Personally, I think that despite arousing interest in the world of programming, it is not going to advance in popularity at the levels of a Python or GO, the trend is for languages with natural, simple, human syntax.
 
@@ -14,13 +18,21 @@ In any case, C turns out to be the language that solves the same problem in less
 
 > It is worth clarifying that for a large number of nodes, perhaps more than 20, specialized algorithms have to be applied, for example, [Google-COR-Tools](https://developers.google.com/optimization/routing/tsp) or [Concorde TSP Solver](https://www.math.uwaterloo.ca/tsp/concorde.html) are suitable. The purpose of this post is not to resolve the classic TSP, per se, is just code.
 
-## Results
-
 In each code file, in the header I put a comment block with the results. I dealt with the problem with 13 nodes, taking the data sample that the [Google-COR-Tools](https://developers.google.com/optimization/routing/tsp) documentation shows.
 
 There are contributions; FORTRAN, Dart, and Python. It is mentioned that there are several variables that could change the results, for example the compilation parameters. The results vary according to the machine where it is executed, but not the order. In summary, the same problem, running in the same machine, with 13 nodes, the results is as follows:
 
-RESUME                         
+About Fortran, initially I compiled with *gfortran MinGW-W64 8.1.0*, with uncertain results, it took 29.7 seconds. Tried applying the available options for optimization with the same poor result to be Fortran.
+
+> MinGW gfortran is an easy compiler with which you can run Fortran programs from a terminal, but the result is disappointing.
+
+Then I work with Intel's developer tools, Intel oneApi©, certainly advanced, with the final result shown in the table, now fortran is at the same level as C++.
+
+> With Intel oneApi© and Visual Studio (for now 2019) we can develop Fortran programs with a professional IDE.
+
+## Results
+
+Of course, the calculated times can vary slightly if you run on another machine, however, the ratio should be practically constant.
 
 | Language     | Elapsed time, s     |
 | ------------ | ------------------- |
@@ -36,17 +48,7 @@ RESUME
 | Dart         | 35.0                |
 | Python       | 157.0 (3)           |
 
-Of course, the calculated times can vary slightly if you run on another machine, however, the ratio should be practically constant.
-
 As theoretically expected, C and C++ are the languages that solves the problem in less time. On the other hand, Rust proves to be the powerful language that it is. While C# is at a little disadvantage in extreme performance, the margin is not great.  
-
-About Fortran, initially I compiled with *gfortran MinGW-W64 8.1.0*, with uncertain results, it took 29.7 seconds. Tried applying the available options for optimization with the same poor result to be Fortran.
-
-> MinGW gfortran is an easy compiler with which you can run Fortran programs from a terminal, but the result is disappointing.
-
-Then I work with Intel's developer tools, Intel oneApi©, certainly advanced, with the final result shown in the table, now fortran is at the same level as C++.
-
-> With Intel oneApi© and Visual Studio (for now 2019) we can develop Fortran programs with a professional IDE.
 
 (1) By virtue of excellent collaboration, applying advanced optimization techniques in C#, the result of this can be improved. However, the application of these techniques is heterodox to normal coding in C#. The result in the table corresponds to long* (for int* the time is around 12.2 s). Read the README document in the corresponding folder for more information. Thanks Tedd; https://github.com/tedd. 
 
@@ -54,7 +56,7 @@ Then I work with Intel's developer tools, Intel oneApi©, certainly advanced, wi
 
 (3) About Python, an executable was created from the Script using Pyinstaller, however the performance is still far from the others. I would like a Python expert to review the code or other compilation tool, it may be possible to write better code and improve the results.
 
-The study continues.
+The study can continue.This is only a hint of the matter, and is possibly not determinative.
 
 ### Epilogue
 

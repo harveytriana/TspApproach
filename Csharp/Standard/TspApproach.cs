@@ -1,37 +1,29 @@
 ﻿/*
 Traveling Salesman Problem 
-By: harveytriana@gmail.com
 
-$ csc main.cs
-$ main
-
-Nodes         : 13
-Iterations    : 479,001,600
-Nodules       : 1 2 3 4 5 6 7 8 9 10 11 12
-...
-Optimus route : 0 7 2 3 4 12 6 8 1 11 10 5 9 0
-Distance      : 7293
-Elapse Time   : 17.54 s
+Update: 15-10-21
 */
 namespace Standard;
 using System;
 using System.Text;
 
-class TspInt32
+class TspApproach
 {
     const int
         NODES_COUNT = 13,
         NODULES_COUNT = NODES_COUNT - 1;
-
     int _depot;
     int _nodes;
     int _nodulesCount;
-    int _iterations;
-    int _percentSize;
     int _percent;
-    int _permutation;
     int _distance;
     int[] _nodules;
+    // iterations   
+    long _iterations;
+    long _percentSize;
+    long _permutation;
+    long _fragment;
+
     StringBuilder _route;
 
     readonly int [,] data = new int[NODES_COUNT, NODES_COUNT]
@@ -52,13 +44,12 @@ class TspInt32
     };
 
     public void Run() {
-        Console.WriteLine("Traveling Salesman Problem Exact algorithm");
-
         _depot = 0;
         _nodes = NODES_COUNT;
         _nodulesCount = NODULES_COUNT;
         _iterations = Factorial(_nodulesCount);
         _percentSize = _iterations / 100;
+        _fragment = _percentSize;
         _percent = 0;
         _permutation = 1;
         _distance = 999999;
@@ -85,6 +76,8 @@ class TspInt32
         Console.WriteLine("Optimus route : {0} {1}{2}", _depot, _route.ToString(), _depot);
         Console.WriteLine("Distance      : {0}", _distance);
         Console.WriteLine("Elapse Time   : {0} s", (DateTime.Now - now).TotalSeconds);
+        Console.WriteLine("\nPause");
+        Console.ReadKey();
     }
 
     void GetRoute(int start, int finish) {
@@ -105,8 +98,9 @@ class TspInt32
                 }
             }
             // show advance
-            if (_percentSize > 0 && _permutation % _percentSize == 0) {
+            if (_permutation > _fragment) {
                 _percent += 1;
+                _fragment += _percentSize;
                 Console.WriteLine("Permutations: {0} %", _percent);
             }
         } else {
@@ -121,7 +115,7 @@ class TspInt32
         }
     }
 
-    int Factorial(int number) {
+    long Factorial(int number) {
         if (number < 2)
             return 1;
         else

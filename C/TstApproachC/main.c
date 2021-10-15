@@ -1,3 +1,19 @@
+/*
+----------------------------------------------------
+TSP execise
+RUN
+Open Solution, then Start withoput Debugging
+
+OUTPUT
+Nodes         : 13
+Iterations    : 479,001,600
+Nodules       : 1 2 3 4 5 6 7 8 9 10 11 12
+...
+Optimus route : 7 2 3 4 12 6 8 1 11 10 5 9
+Distance      : 7293
+Elapse time   : 7.68 x64 | 6.60 x86
+----------------------------------------------------
+*/
 #include <stdio.h>
 #include <limits.h>
 #include <time.h>
@@ -7,13 +23,12 @@
 
 // INTERFACE
 void tspExact();
-void routeString();
-void swap(long* x, long* y);
-long factorial(long number);
-void getRoute(long start, long end);
+void swap(int* x, int* y);
+int factorial(int number);
+void getRoute(int start, int end);
 void printRoute();
 
-long _data[NODES][NODES] = {
+int _data[NODES][NODES] = {
     { 0, 2451, 713, 1018, 1631, 1374, 2408, 213, 2571, 875, 1420, 2145, 1972 },
     { 2451, 0, 1745, 1524, 831, 1240, 959, 2596, 403, 1589, 1374, 357, 579 },
     { 713, 1745, 0, 355, 920, 803, 1737, 851, 1858, 262, 940, 1453, 1260 },
@@ -29,16 +44,18 @@ long _data[NODES][NODES] = {
     { 1972, 579, 1260, 987, 371, 999, 701, 2099, 600, 1162, 1200, 504, 0 },
 };
 
-long _depot;
-long _nodes;
-long _nodulesCount;
+int _depot;
+int _nodes;
+int _nodulesCount;
+int _percent;
+int _minDistance;
+int _nodules[NODES - 1];
+int _route[NODES - 1];
+//
 long _iterations;
 long _percentSize;
-long _percent;
 long _permutation;
-long _minDistance;
-long _nodules[NODES - 1];
-long _route[NODES - 1];
+long _fragment;
 
 void main()
 {
@@ -56,8 +73,9 @@ void tspExact()
     _nodulesCount = NODES - 1;
     _iterations = factorial(_nodulesCount);
     _percentSize = _iterations / 100;
+    _fragment = _percentSize;
     _permutation = 1;
-    _minDistance = LONG_MAX;
+    _minDistance = 999999;
 
     clock_t now = clock();
 
@@ -88,13 +106,13 @@ void tspExact()
 
 }
 
-void getRoute(long start, long end)
+void getRoute(int start, int end)
 {
     if (start == end - 1)
     {
         // validate distance
         // 1. boundaries A..N, N..A
-        long s = _data[_depot][_nodules[0]] +
+        int s = _data[_depot][_nodules[0]] +
             _data[_nodules[_nodulesCount - 1]][_depot];
         // 2. route
         for (int i = 0; i < _nodulesCount - 1; i++)
@@ -107,9 +125,10 @@ void getRoute(long start, long end)
             _minDistance = s;
             for (int i = 0; i < _nodulesCount; i++)    _route[i] = _nodules[i];
         }
-        if (_percentSize > 0 && _permutation % _percentSize == 0)
+        if (_permutation > _fragment)
         {
             _percent += 1;
+            _fragment += _percentSize;
             printf("Permutations: %d\n", _percent);
         }
     }
@@ -127,7 +146,7 @@ void getRoute(long start, long end)
     }
 }
 
-long factorial(long number)
+long factorial(int number)
 {
     if (number < 2)
         return 1;
@@ -135,9 +154,9 @@ long factorial(long number)
         return number * factorial(number - 1);
 }
 
-void swap(long* x, long* y)
+void swap(int* x, int* y)
 {
-    long t = *x;
+    int t = *x;
     *x = *y;
     *y = t;
 }

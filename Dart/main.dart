@@ -26,6 +26,7 @@ var _minDistance;
 var _route;
 var _nodules;
 var _swap;
+var _fragment;
 
 main(List<String> args) {
   print("Traveling Salesman Problem Exact algorithm");
@@ -58,6 +59,7 @@ main(List<String> args) {
   _nodulesCount = _nodes - 1;
   _iterations = factorial(_nodulesCount);
   _percentSize = (_iterations / 100).toInt();
+  _fragment = _percentSize;
   _permutation = 1;
   _minDistance = 999999;
   _percent = 0;
@@ -75,7 +77,7 @@ main(List<String> args) {
   print("Nodules       : $_nodules");
 
   Stopwatch stopwatch = new Stopwatch()..start();
-  
+
   // recursive calculation
   getRoute(0, _nodulesCount);
 
@@ -102,11 +104,10 @@ getRoute(int start, int end) {
       // let route
       NodulesString();
     }
-    if (_percentSize > 0) {
-      if (_permutation % _percentSize == 0) {
-        _percent += 1;
-        print("Permutations: $_percent %");
-      }
+    if (_permutation > _fragment) {
+      _percent += 1;
+      _fragment += _percentSize;
+      print("Permutations: $_percent %");
     }
   } else {
     for (var i = start; i < end; i++) {

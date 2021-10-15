@@ -1,18 +1,8 @@
 ﻿/*
 Traveling Salesman Problem 
-Updte 21-09-21
+Collaboration Geekosaurus Tedd
 
-RUN
-Add to Console Project (Release), net5 | net6, from Main() { ... TspInt32().Run(); }
-
-OUTPUT
-Nodes         : 13
-Iterations    : 479,001,600
-Nodules       : 1 2 3 4 5 6 7 8 9 10 11 12
-...
-Optimum route : 0 7 2 3 4 12 6 8 1 11 10 5 0
-Distance      : 7293
-Elapse Time   : 12.20 s
+Update: 15-10-21
 */
 using System;
 using System.Diagnostics;
@@ -20,7 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 
-class TspInt32
+class TspApproach
 {
     public static void Run()
     {
@@ -40,11 +30,7 @@ class TspInt32
              1972, 579, 1260, 987, 371, 999, 701, 2099, 600, 1162, 1200, 504, 0,
         };
 
-        Console.WriteLine("Traveling Salesman Problem Exact algorithm");
         new TspExactInt32().GetOptimusRoute(a);
-
-        Console.WriteLine("\nPause");
-        Console.ReadKey();
     }
 }
 
@@ -56,28 +42,26 @@ unsafe class TspExactInt32
     int _depot;
     int _nodes;
     int _nodulesCount;
-    int _iterations;
-    int _percentSize;
     int _percent;
-    int _permutation;
     int _distance;
     int* _nodules;
+    // iterations   
+    long _iterations;
+    long _percentSize;
+    long _permutation;
+    long _fragment;
     StringBuilder _route;
+
     readonly Stopwatch _now = new();
 
     public void GetOptimusRoute(int[] data, int depot = 0)
     {
-        if ((_nodes = DataLength) > 13)
-        {
-            Console.WriteLine("The maximum number of nodes for Int32 is 13.");
-            return;
-        }
-
         var dataPinned = GCHandle.Alloc(data, GCHandleType.Pinned);
         _data = (int*)dataPinned.AddrOfPinnedObject(); _depot = depot;
         _nodulesCount = _nodes - 1;
         _iterations = Factorial(_nodulesCount);
         _percentSize = _iterations / 100;
+        _fragment = _percentSize;
         _permutation = 1;
         _distance = int.MaxValue;
         _route = new StringBuilder(256);
@@ -95,7 +79,7 @@ unsafe class TspExactInt32
             }
         }
         Console.WriteLine("Nodes         : {0}", _nodes.ToString());
-        Console.WriteLine("Iterations    : {0:N0}", _iterations.ToString());
+        Console.WriteLine("Iterations    : {0}", _iterations.ToString());
         Console.WriteLine("Nodules       : {0}", string.Join(" ", nodules));
         _now.Restart();
 
@@ -106,6 +90,8 @@ unsafe class TspExactInt32
         Console.WriteLine("Optimus route : {0} {1}{2}", _depot.ToString(), _route.ToString(), _depot.ToString());
         Console.WriteLine("Distance      : {0}", _distance.ToString());
         Console.WriteLine("Elapse Time   : {0} ", ElapseTime());
+        Console.WriteLine("\nPause");
+        Console.ReadKey();
     }
 
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]
@@ -133,16 +119,16 @@ unsafe class TspExactInt32
                     _route.Append(" ");
                 }
             }
-            if (_percentSize > 0 && _permutation % _percentSize == 0)
+            if (_permutation > _fragment)
             {
                 _percent += 1;
-                Console.WriteLine("Permutations: {0} % {1}", _percent.ToString(), ElapseTime());
-                //Console.WriteLine("Permutations: {0} % {1}", _percent.ToString(), ElapseTime());
+                _fragment += _percentSize;
+                Console.WriteLine("Permutations: {0} % ", _percent);
             }
         }
         else
         {
-            for (var i = start; i < end; i++)
+            for (int i = start; i < end; i++)
             {
                 // swap
                 (_nodules[start], _nodules[i]) = (_nodules[i], _nodules[start]);
@@ -154,7 +140,7 @@ unsafe class TspExactInt32
         }
     }
 
-    int Factorial(int number)
+    long Factorial(int number)
     {
         if (number < 2)
             return 1;

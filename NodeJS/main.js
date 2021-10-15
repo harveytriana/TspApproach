@@ -26,6 +26,7 @@ var _minDistance;
 var _route;
 var _nodules;
 var _swap;
+var _fragment;
 
 main();
 
@@ -60,6 +61,7 @@ function main() {
     _nodulesCount = _nodes - 1;
     _iterations = factorial(_nodulesCount);
     _percentSize = (_iterations / 100);
+    _fragment = _percentSize;
     _permutation = 1;
     _minDistance = 999999;
     _percent = 0;
@@ -104,11 +106,10 @@ function getRoute(start, end) {
             // let route
             _route = _nodules.toString();
         }
-        if (_percentSize > 0) {
-            if (_permutation % _percentSize == 0) {
-                _percent += 1;
-                console.log("Permutations: ", _percent, " %");
-            }
+        if (_permutation > _fragment) {
+            _percent += 1;
+            _fragment += _percentSize
+            console.log("Permutations: ", _percent, " %");
         }
     } else {
         for (let i = start; i < end; i++) {

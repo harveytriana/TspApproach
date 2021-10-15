@@ -2,17 +2,15 @@
 
 ***Traveling Salesman Problem Exact algorithm as Logic Tester***
 
-*Update: 04-10-21*
+*Update: 15-10-21*
 
-I was curious to write a specific problem in multiple languages to check its performance. I wrote an approach to the classic [TSP](https://en.wikipedia.org/wiki/Travelling_salesman_problem). My algorithm is simple, it measures all permutations to arrive at an exact answer. Of course, due to the exponential nature of the problem, this is not the best general solution. However, the goal is not to write a solution to this problem, that in fact a totally perfect one does not exist. The code I wrote is very effective, processing an average of 25 million calculations per second in C#. Initially write in C#, and I did the corresponding translation to Rust and GO. Then, through collaborations, I have added C++, Dart, Python, the scary Fortran, and  JavaScript in the NodeJS environment. Recently, a collaboration was made for optimized coding in C#.
+It is oriented to write the equivalent of the same code as far as possible, and it runs on the same machine (DELL Server). The idea is to measure the performance trend in each case. This is an approach to the classic [TSP](https://en.wikipedia.org/wiki/Travelling_salesman_problem). My algorithm is simple, it measures all permutations to arrive at an exact answer. Of course, due to the exponential nature of the problem, this is not the best general solution. However, the goal is not to write a solution to this problem, that in fact a totally perfect one does not exist. The code I wrote is very effective, processing an average of 30 million calculations per second in C#. Initially write in C#, and I did the corresponding translation to other languages. Then, through collaborations, I have added C++, Dart, Python, the scary Fortran, JavaScript in the NodeJS environment. Recently, a collaboration was made for optimized coding in C#. The final language I added is Java.
 
-Rust is very interesting. I have explored its syntax, and I really liked it. It is elegant and powerful, yet it is clearly orthodox with traditional programming, which puts a steep learning curve on it. Personally, I think that despite arousing interest in the world of programming, it is not going to advance in popularity at the levels of a Python or GO, the trend is for languages with natural, simple, human syntax.
+Rust is very interesting. I have explored its syntax, and I really liked it. It is elegant and powerful, yet it is clearly «heterodox» with traditional programming, which puts a steep learning curve on it. Personally, I think that despite arousing interest in the world of programming, it is not going to advance in popularity at the levels of a Python or GO, the trend is for languages with natural, simple, human syntax.
 
 On the other hand, GO is impressive in several aspects. The syntax is very flexible and easy to learn, and at the same time it has an enviable performance. But not everything is a paradise in GO, some experts highlight some flaws of its design such as lack of function overload, lack of generics, lack of dependency injection (unforgivable for .NET programmers).
 
-In any case, its majesty C turns out to be the language that solves the same problem in less time, followed closely by C++ and Fortran. 
-
-As a note, I bring up that tests were made with C# integer of 32 (*int* isntead of *long*), and it improves performance by ~15%. GO also increases when using int32. However, with an integer of 32 the solution limit is reduced to 13 nodes or less. 
+In any case, C turns out to be the language that solves the same problem in less time, followed closely by C++ and Fortran. 
 
 > It is worth clarifying that for a large number of nodes, perhaps more than 20, specialized algorithms have to be applied, for example, [Google-COR-Tools](https://developers.google.com/optimization/routing/tsp) or [Concorde TSP Solver](https://www.math.uwaterloo.ca/tsp/concorde.html) are suitable. The purpose of this post is not to resolve the classic TSP, per se, is just code.
 
@@ -24,18 +22,19 @@ There are contributions; FORTRAN, Dart, and Python. It is mentioned that there a
 
 RESUME                         
 
-| Language     | Elapsed time, s |
-| ------------ | --------------- |
-| C            | 7.2             |
-| C++          | 7.9             |
-| Fortran      | 8.0             |
-| Rust         | 10.0            |
-| C#           | 14.5 (1)        |
-| GO           | 16.6            |
-| C#           | 20.0 (2)        |
-| NodeJS       | 27.1            |
-| Dart         | 35.0            |
-| Python       | 157.0 (3)       |
+| Language     | Elapsed time, s     |
+| ------------ | ------------------- |
+| C            | 6.60 x86 | 7.68 x64 |
+| C++          | 6.68 x86 | 7.54 x64 |
+| Fortran      | 7.39 x86 | 7.42 x64 |
+| Rust         | 10.0                |
+| C#           | 11.20 (1)           |
+| GO           | 11.95               |
+| Java         | 13.20               |
+| C#           | 16.50 (2)           |
+| NodeJS       | 25.25               |
+| Dart         | 35.0                |
+| Python       | 157.0 (3)           |
 
 Of course, the calculated times can vary slightly if you run on another machine, however, the ratio should be practically constant.
 
@@ -45,13 +44,13 @@ About Fortran, initially I compiled with *gfortran MinGW-W64 8.1.0*, with uncert
 
 > MinGW gfortran is an easy compiler with which you can run Fortran programs from a terminal, but the result is disappointing.
 
-I recently used Intel's developer tools, Intel oneApi©, certainly advanced, with the final result shown in the table, now fortran is at the same level as C++.
+Then I work with Intel's developer tools, Intel oneApi©, certainly advanced, with the final result shown in the table, now fortran is at the same level as C++.
 
 > With Intel oneApi© and Visual Studio (for now 2019) we can develop Fortran programs with a professional IDE.
 
 (1) By virtue of excellent collaboration, applying advanced optimization techniques in C#, the result of this can be improved. However, the application of these techniques is heterodox to normal coding in C#. The result in the table corresponds to long* (for int* the time is around 12.2 s). Read the README document in the corresponding folder for more information. Thanks Tedd; https://github.com/tedd. 
 
-(2) For standard C# code, elapse time for int64 is ~20 s, and int32 ~17 s.
+(2) For standard C# code, elapse time is ~17 s. I mean by "standard" one to which extreme optimizations were not applied.
 
 (3) About Python, an executable was created from the Script using Pyinstaller, however the performance is still far from the others. I would like a Python expert to review the code or other compilation tool, it may be possible to write better code and improve the results.
 

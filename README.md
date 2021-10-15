@@ -70,4 +70,4 @@ By: Luis Harvey Triana Vega
 
 **Collaborations**
 
-You can publish a version in another language or start a discussion about something published. Email me to add you as Collaborator. 
+You can publish a version in another language or start a discussion about something published. 

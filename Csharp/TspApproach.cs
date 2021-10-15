@@ -57,7 +57,9 @@ unsafe class TspExactInt32
     public void GetOptimusRoute(int[] data, int depot = 0)
     {
         var dataPinned = GCHandle.Alloc(data, GCHandleType.Pinned);
-        _data = (int*)dataPinned.AddrOfPinnedObject(); _depot = depot;
+        _data = (int*)dataPinned.AddrOfPinnedObject(); 
+        _depot = depot;
+        _nodes = DataLength;
         _nodulesCount = _nodes - 1;
         _iterations = Factorial(_nodulesCount);
         _percentSize = _iterations / 100;

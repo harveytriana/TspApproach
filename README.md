@@ -36,19 +36,19 @@ In a recent analysis (10-15-21), the modular division with operator (%) was repl
 
 Of course, the calculated times can vary slightly if you run on another machine, however, the ratio should be practically constant. Here are the results with 13 nodes. Time increases exponentially according to the number of nodes.
 
-| Language     | Elapsed time, s     |
-| ------------ | ------------------- |
-| C            | 6.60 x86 | 7.68 x64 |
-| C++          | 6.68 x86 | 7.54 x64 |
-| Fortran      | 7.39 x86 | 7.42 x64 |
-| Rust         | 10.00               |
-| C#           | 10.60 (1)           |
-| GO           | 11.95               |
-| Java         | 13.20               |
-| C#           | 16.20 (2)           |
-| NodeJS       | 25.25               |
-| Dart         | 34.00               |
-| Python       | 157.0 (3)           |
+| Language     | Elapsed time, s     | Note                                                |
+| ------------ | ------------------- | --------------------------------------------------- |
+| C            | 6.60 x86 | 7.68 x64 | Visual Studio 2022 (platform v143)                  | 
+| C++          | 6.68 x86 | 7.54 x64 | Visual Studio 2022 (platform v143)                  |
+| Fortran      | 7.39 x86 | 7.42 x64 | Intel® oneAPI HPC / Visual Studio 2019              |
+| Rust         | 10.00               | rustc 1.55.0 (c8dfcfe04 2021-09-06)                 |
+| C#           | 10.60 (1)           | net6, Visual Studio 2022, Aggressive Optimization   |
+| GO           | 11.95               | go version go1.17 windows/amd64                     |
+| Java         | 13.20               | OpenJDK 11 (LTS) Windows X64                        |
+| C#           | 16.20 (2)           | net6, Visual Studio 2022                            |
+| NodeJS       | 25.25               | Version v15.2.1                                     |
+| Dart         | 34.00               | SDK: 2.14.4 (stable) on "windows_x64"               |
+| Python       | 157.0 (3)           | Version 3.9.5, Executable using Pyinstaller         |
 
 As theoretically expected, C and C++ are the languages that solves the problem in less time. On the other hand, Rust proves to be the powerful language that it is. While C# is at a little disadvantage in extreme performance, the margin is not great.  
 

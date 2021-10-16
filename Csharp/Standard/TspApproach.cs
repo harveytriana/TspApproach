@@ -106,13 +106,20 @@ class TspApproach
         } else {
             for (int i = start; i < finish; i++) {
                 // swap
-                (_nodules[start], _nodules[i]) = (_nodules[i], _nodules[start]);
+                Swap(start, i);
                 // permute
                 GetRoute(start + 1, finish);
                 // swap
-                (_nodules[start], _nodules[i]) = (_nodules[i], _nodules[start]);
+                Swap(start, i);
             }
         }
+    }
+
+    void Swap(int i, int j)
+    {
+        int t = _nodules[i];
+        _nodules[i] = _nodules[j];
+        _nodules[j] = t;
     }
 
     long Factorial(int number) {

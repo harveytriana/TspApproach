@@ -54,10 +54,14 @@ unsafe class TspApproachUsafe
 
     readonly Stopwatch _now = new();
 
+    // aux
+    int _depotIndex;
+    int _nodulesBackOne;
+
     public void GetOptimusRoute(int[] data, int depot = 0)
     {
         var dataPinned = GCHandle.Alloc(data, GCHandleType.Pinned);
-        _data = (int*)dataPinned.AddrOfPinnedObject(); 
+        _data = (int*)dataPinned.AddrOfPinnedObject();
         _depot = depot;
         _nodes = DataLength;
         _nodulesCount = _nodes - 1;
@@ -67,16 +71,17 @@ unsafe class TspApproachUsafe
         _permutation = 1;
         _distance = int.MaxValue;
         _route = new StringBuilder(256);
+        // aux
+        _depotIndex = _depot * DataWidth;
+        _nodulesBackOne = _nodulesCount - 1;
 
         // arrangement of permutations
         var nodules = new int[_nodulesCount];
         var nodulesPinned = GCHandle.Alloc(nodules, GCHandleType.Pinned);
         _nodules = (int*)nodulesPinned.AddrOfPinnedObject();
         int j = 0;
-        for (int i = 0; i < _nodes; i++)
-        {
-            if (i != _depot)
-            {
+        for (int i = 0; i < _nodes; i++) {
+            if (i != _depot) {
                 _nodules[j++] = i;
             }
         }
@@ -99,45 +104,38 @@ unsafe class TspApproachUsafe
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     void GetRoute(int start, int end)
     {
-        if (start == end - 1)
-        {
+        if (start == end - 1) {
             // validate distance
             // 1. boundaries A..N, N..A
-            var sum = _data[_depot * DataWidth + _nodules[0]] +
-                      _data[_nodules[_nodulesCount - 1] * DataWidth + _depot];
+            var sum = _data[_depotIndex + _nodules[0]] +
+                      _data[_nodules[_nodulesBackOne] * DataWidth + _depot];
             // 2. route
-            for (int i = 0; i < _nodulesCount - 1; i++)
-            {
+            for (int i = 0; i < _nodulesBackOne; i++) {
                 sum += _data[_nodules[i] * DataWidth + _nodules[i + 1]];
             }
             _permutation++;
-            if (_distance > sum)
-            {// update minimun
+            if (_distance > sum) {// update minimun
                 _distance = sum;
                 _route.Clear();
-                for (int i = 0; i < _nodulesCount; i++)
-                {
+                for (int i = 0; i < _nodulesCount; i++) {
                     _route.Append(_nodules[i]);
-                    _route.Append(" ");
+                    _route.Append(' ');
                 }
             }
-            if (_permutation > _fragment)
-            {
+            if (_permutation > _fragment) {
                 _percent += 1;
                 _fragment += _percentSize;
                 Console.WriteLine("Permutations: {0} % ", _percent);
             }
         }
-        else
-        {
-            for (int i = start; i < end; i++)
-            {
+        else {
+            for (int i = start; i < end; i++) {
                 // swap
-                (_nodules[start], _nodules[i]) = (_nodules[i], _nodules[start]);
+                Swap(start, i);
                 // permute
                 GetRoute(start + 1, end);
                 // swap
-                (_nodules[start], _nodules[i]) = (_nodules[i], _nodules[start]);
+                Swap(start, i);
             }
         }
     }
@@ -148,6 +146,13 @@ unsafe class TspApproachUsafe
             return 1;
         else
             return number * Factorial(number - 1);
+    }
+
+    void Swap(int i, int j)
+    {
+        int t = _nodules[i];
+        _nodules[i] = _nodules[j];
+        _nodules[j] = t;
     }
 
     string ElapseTime() => _now.Elapsed.TotalSeconds.ToString("N4") + " s";

@@ -38,9 +38,9 @@ Of course, the calculated times can vary slightly if you run on another machine,
 
 | Language     | Elapsed time, s     | Note                                                |
 | ------------ | ------------------- | --------------------------------------------------- |
-| C            | 6.60 x86 | 7.68 x64 | Visual Studio 2022 (platform v143)                  | 
-| C++          | 6.68 x86 | 7.54 x64 | Visual Studio 2022 (platform v143)                  |
-| Fortran      | 7.39 x86 | 7.42 x64 | Intel® oneAPI HPC / Visual Studio 2019              |
+| C            | 6.60 x86 / 7.68 x64 | Visual Studio 2022 (platform v143)                  | 
+| C++          | 6.68 x86 / 7.54 x64 | Visual Studio 2022 (platform v143)                  |
+| Fortran      | 7.39 x86 / 7.42 x64 | Intel® oneAPI HPC / Visual Studio 2019              |
 | Rust         | 10.00               | rustc 1.55.0 (c8dfcfe04 2021-09-06)                 |
 | C#           | 10.60 (1)           | net6, Visual Studio 2022, Aggressive Optimization   |
 | GO           | 11.95               | go version go1.17 windows/amd64                     |

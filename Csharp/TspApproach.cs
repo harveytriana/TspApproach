@@ -36,8 +36,8 @@ class TspApproach
 
 unsafe class TspApproachUsafe
 {
-    const int DataWidth = 13;
-    const int DataLength = 13;
+    const int DATA_WIDTH = 13;
+    const int DATA_LENGTH = 13;
     int* _data;
     int _depot;
     int _nodes;
@@ -63,7 +63,7 @@ unsafe class TspApproachUsafe
         var dataPinned = GCHandle.Alloc(data, GCHandleType.Pinned);
         _data = (int*)dataPinned.AddrOfPinnedObject();
         _depot = depot;
-        _nodes = DataLength;
+        _nodes = DATA_LENGTH;
         _nodulesCount = _nodes - 1;
         _iterations = Factorial(_nodulesCount);
         _percentSize = _iterations / 100;
@@ -72,7 +72,7 @@ unsafe class TspApproachUsafe
         _distance = int.MaxValue;
         _route = new StringBuilder(256);
         // aux
-        _depotIndex = _depot * DataWidth;
+        _depotIndex = _depot * DATA_WIDTH;
         _nodulesBackOne = _nodulesCount - 1;
 
         // arrangement of permutations
@@ -108,10 +108,10 @@ unsafe class TspApproachUsafe
             // validate distance
             // 1. boundaries A..N, N..A
             var sum = _data[_depotIndex + _nodules[0]] +
-                      _data[_nodules[_nodulesBackOne] * DataWidth + _depot];
+                      _data[_nodules[_nodulesBackOne] * DATA_WIDTH + _depot];
             // 2. route
             for (int i = 0; i < _nodulesBackOne; i++) {
-                sum += _data[_nodules[i] * DataWidth + _nodules[i + 1]];
+                sum += _data[_nodules[i] * DATA_WIDTH + _nodules[i + 1]];
             }
             _permutation++;
             if (_distance > sum) {// update minimun

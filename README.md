@@ -30,7 +30,7 @@ Then I work with Intel's developer tools, Intel oneApi©, certainly advanced, wi
 
 > With Intel oneApi© and Visual Studio (for now 2019) we can develop Fortran programs with a professional IDE.
 
-In a recent analysis (15-10-21), the modular division with operator (%) was replaced by a more efficient strategy. The improvement in C # and GO is notable; it was applied to everyone.
+In a recent analysis (10-15-21), the modular division with operator (%) was replaced by a more efficient strategy. The improvement in C# and GO is remarkable; it applied to everyone.
 
 ## Results
 

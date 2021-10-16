@@ -1,6 +1,8 @@
 /*
 Traveling Salesman Problem 
 
+Dart SDK version: 2.14.4 (stable) (Wed Oct 13 11:11:32 2021 +0200) on "windows_x64"
+
 RUN
 $ dart main.dart
 

@@ -12,8 +12,8 @@ Nodules       : 1 2 3 4 5 6 7 8 9 10 11 12
 ...
 Optimum route : 0 7 2 3 4 12 6 8 1 11 10 5 0
 Distance      : 7293
-Elapse Time   : (Optimized) 10.45 s
-Elapse Time   : (Standard)  16.50 s
+Elapse Time   : (Optimized) 10.55 s
+Elapse Time   : (Standard)  16.20 s
 */
 using System;
 using System.Runtime.CompilerServices;

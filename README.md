@@ -30,6 +30,8 @@ Then I work with Intel's developer tools, Intel oneApi©, certainly advanced, wi
 
 > With Intel oneApi© and Visual Studio (for now 2019) we can develop Fortran programs with a professional IDE.
 
+In a recent analysis (15-10-21), the modular division with operator (%) was replaced by a more efficient strategy. The improvement in C # and GO is notable; it was applied to everyone.
+
 ## Results
 
 Of course, the calculated times can vary slightly if you run on another machine, however, the ratio should be practically constant. Here are the results with 13 nodes. Time increases exponentially according to the number of nodes.
@@ -39,13 +41,13 @@ Of course, the calculated times can vary slightly if you run on another machine,
 | C            | 6.60 x86 | 7.68 x64 |
 | C++          | 6.68 x86 | 7.54 x64 |
 | Fortran      | 7.39 x86 | 7.42 x64 |
-| Rust         | 10.0                |
-| C#           | 11.20 (1)           |
+| Rust         | 10.00               |
+| C#           | 10.60 (1)           |
 | GO           | 11.95               |
 | Java         | 13.20               |
-| C#           | 16.50 (2)           |
+| C#           | 16.20 (2)           |
 | NodeJS       | 25.25               |
-| Dart         | 35.0                |
+| Dart         | 34.00               |
 | Python       | 157.0 (3)           |
 
 As theoretically expected, C and C++ are the languages that solves the problem in less time. On the other hand, Rust proves to be the powerful language that it is. While C# is at a little disadvantage in extreme performance, the margin is not great.  

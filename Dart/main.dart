@@ -25,7 +25,6 @@ var _permutation;
 var _minDistance;
 var _route;
 var _nodules;
-var _swap;
 var _fragment;
 
 main(List<String> args) {
@@ -131,9 +130,9 @@ int factorial(int n) {
 }
 
 swap(int i, int j) {
-  _swap = _nodules[i];
+  var t = _nodules[i];
   _nodules[i] = _nodules[j];
-  _nodules[j] = _swap;
+  _nodules[j] = t;
 }
 
 NodulesString() {

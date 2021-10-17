@@ -2,7 +2,7 @@
 
 ***Traveling Salesman Problem Exact algorithm as Logic Tester***
 
-*Update: 15-10-21*
+*Update: 17-10-21*
 
 ## Resume
 
@@ -45,7 +45,7 @@ Of course, the calculated times can vary slightly if you run on another machine,
 | C#           | 10.60 (1)           | net6, Visual Studio 2022, Aggressive Optimization   |
 | GO           | 11.95               | go version go1.17 windows/amd64                     |
 | Java         | 13.20               | OpenJDK 11 (LTS) Windows X64                        |
-| C#           | 16.20 (2)           | net6, Visual Studio 2022                            |
+| C#           | 14.60 (2)           | net6, Visual Studio 2022                            |
 | NodeJS       | 25.25               | Version v15.2.1                                     |
 | Dart         | 34.00               | SDK: 2.14.4 (stable) on "windows_x64"               |
 | Python       | 157.0 (3)           | Version 3.9.5, Executable using Pyinstaller         |
@@ -54,7 +54,7 @@ As theoretically expected, C and C++ are the languages that solves the problem i
 
 (1) By virtue of excellent collaboration, applying advanced optimization techniques in C#, the result of this can be improved. However, the application of these techniques is heterodox to normal coding in C#. The result in the table corresponds to long* (for int* the time is around 12.2 s). Read the README document in the corresponding folder for more information. Thanks Tedd; https://github.com/tedd. 
 
-(2) For standard C# code, elapse time is ~17 s. I mean by "standard" one to which extreme optimizations were not applied.
+(2) For standard C# code, elapse time is ~17 s. I mean by "standard" one to which extreme optimizations were not applied. In update 17-10-21 I used a Jagged array to replace the multidimensional array, that improved the time of C #, version without pointers (standard) by ~ 9%
 
 (3) About Python, an executable was created from the Script using Pyinstaller, however the performance is still far from the others. I would like a Python expert to review the code or other compilation tool, it may be possible to write better code and improve the results.
 

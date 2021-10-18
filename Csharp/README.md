@@ -8,8 +8,6 @@ Edit main.cs to modify which test to run.
 
 Switch from .Net 5.0 to .Net 6.0 rc1 made test go 4.6% faster.
 
-The standard C# code can be found in the Standard folder, which it use as a namespace.
-
 ## Array access
 
 In C# memory safety is opt-out. So when comparing with languages without memory safety such as purely array-driven access (bounds check) will always be slower. There are however some simple tricks for speeding up array access in certain cases, as described here: [https://blog.tedd.no/2020/06/01/faster-c-array-access/](https://blog.tedd.no/2020/06/01/faster-c-array-access/)). C# also has a problem with multidimensional arrays, where both jagged arrays or one-dimensional arrays are significantly faster. Using unsafe array access is any way faster, and removed 24-28% of the time for this test.

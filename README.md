@@ -2,7 +2,7 @@
 
 ***Traveling Salesman Problem Exact algorithm as Logic Tester***
 
-*Update: 17-10-21*
+*Update: 18-10-21*
 
 ## Resume
 
@@ -52,9 +52,9 @@ Of course, the calculated times can vary slightly if you run on another machine,
 
 As theoretically expected, C and C++ are the languages that solves the problem in less time. On the other hand, Rust proves to be the powerful language that it is. While C# is at a little disadvantage in extreme performance, the margin is not great.  
 
-(1) By virtue of excellent collaboration, applying advanced optimization techniques in C#, the result of this can be improved. However, the application of these techniques is heterodox to normal coding in C#. The result in the table corresponds to long* (for int* the time is around 12.2 s). Read the README document in the corresponding folder for more information. Thanks Tedd; https://github.com/tedd. 
+(1) Unnsafe. By virtue of excellent collaboration, applying advanced optimization techniques in C#, the result of this can be improved. However, the application of these techniques is heterodox to normal coding in C#. The result in the table corresponds to long* (for int* the time is around 12.2 s). Read the README document in the corresponding folder for more information. Thanks Tedd; https://github.com/tedd. 
 
-(2) For standard C# code, elapse time is ~14.6 s. I mean by "standard" one to which extreme optimizations were not applied. In update 17-10-21 I used a Jagged array to replace the multidimensional array, that improved the time of C#, version without pointers (standard) by ~9%
+(2) Safe. For standard C# code, elapse time is ~14.6 s. I mean by "standard" one to which extreme optimizations were not applied. In update 17-10-21 I used a Jagged array to replace the multidimensional array, that improved the time of C#, version without pointers (standard) by ~9%
 
 (3) About Python, an executable was created from the Script using Pyinstaller, however the performance is still far from the others. I would like a Python expert to review the code or other compilation tool, it may be possible to write better code and improve the results.
 

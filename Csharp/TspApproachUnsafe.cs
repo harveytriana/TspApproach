@@ -2,7 +2,16 @@
 Traveling Salesman Problem 
 Collaboration Geekosaurus Tedd
 
-Update: 15-10-21
+Update: 18-10-21
+
+OUTPUT
+Nodes         : 13
+Iterations    : 479,001,600
+Nodules       : 1 2 3 4 5 6 7 8 9 10 11 12
+...
+Optimum route : 0 7 2 3 4 12 6 8 1 11 10 5 0
+Distance      : 7293
+Elapse Time   : ~10.55 s
 */
 using System;
 using System.Diagnostics;
@@ -10,11 +19,11 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 
-class TspApproach
+class TspApproachUnsafeSample
 {
     public static void Run()
     {
-        int[] a = {
+        int[] data = {
              0, 2451, 713, 1018, 1631, 1374, 2408, 213, 2571, 875, 1420, 2145, 1972,
              2451, 0, 1745, 1524, 831, 1240, 959, 2596, 403, 1589, 1374, 357, 579,
              713, 1745, 0, 355, 920, 803, 1737, 851, 1858, 262, 940, 1453, 1260,
@@ -30,14 +39,12 @@ class TspApproach
              1972, 579, 1260, 987, 371, 999, 701, 2099, 600, 1162, 1200, 504, 0,
         };
 
-        new TspApproachUsafe().GetOptimusRoute(a);
+        new TspApproachUnsafe().GetOptimusRoute(data, 13, 0);
     }
 }
 
-unsafe class TspApproachUsafe
+unsafe class TspApproachUnsafe
 {
-    const int DATA_WIDTH = 13;
-    const int DATA_LENGTH = 13;
     int* _data;
     int _depot;
     int _nodes;
@@ -58,12 +65,12 @@ unsafe class TspApproachUsafe
     int _depotIndex;
     int _nodulesBackOne;
 
-    public void GetOptimusRoute(int[] data, int depot = 0)
+    public void GetOptimusRoute(int[] data, int nodesCount, int depot = 0)
     {
         var dataPinned = GCHandle.Alloc(data, GCHandleType.Pinned);
         _data = (int*)dataPinned.AddrOfPinnedObject();
         _depot = depot;
-        _nodes = DATA_LENGTH;
+        _nodes = nodesCount;
         _nodulesCount = _nodes - 1;
         _iterations = Factorial(_nodulesCount);
         _percentSize = _iterations / 100;
@@ -72,7 +79,7 @@ unsafe class TspApproachUsafe
         _distance = int.MaxValue;
         _route = new StringBuilder(256);
         // aux
-        _depotIndex = _depot * DATA_WIDTH;
+        _depotIndex = _depot * _nodes;
         _nodulesBackOne = _nodulesCount - 1;
 
         // arrangement of permutations
@@ -108,10 +115,10 @@ unsafe class TspApproachUsafe
             // validate distance
             // 1. boundaries A..N, N..A
             var sum = _data[_depotIndex + _nodules[0]] +
-                      _data[_nodules[_nodulesBackOne] * DATA_WIDTH + _depot];
+                      _data[_nodules[_nodulesBackOne] * _nodes + _depot];
             // 2. route
             for (int i = 0; i < _nodulesBackOne; i++) {
-                sum += _data[_nodules[i] * DATA_WIDTH + _nodules[i + 1]];
+                sum += _data[_nodules[i] * _nodes + _nodules[i + 1]];
             }
             _permutation++;
             if (_distance > sum) {// update minimun

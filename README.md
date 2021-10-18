@@ -60,6 +60,8 @@ As theoretically expected, C and C++ are the languages that solves the problem i
 
 The study can continue.This is only a hint of the matter, and is possibly not determinative.
 
+«Continuous measurement is important. Things tend to improve over time». David Fowler 
+
 ### Epilogue
 
 In the algorithm that I programmed there is a flat in that the number of effective permutations is actually half. However, due to the flow of the permutation calculation, it is difficult to filter which ones are repeated. In other words, the distance the traveler takes to travel a route is the same back and forth, that is why one of the combinations should be discarded. There would be several ways to solve it, but the cost in code would involve high memory consumption and possibly the final time is longer. The programmed algorithm consumes a very small amount of memory, it does not remember anything, it only goes forward. I leave this concern, if anyone wants to improve it.

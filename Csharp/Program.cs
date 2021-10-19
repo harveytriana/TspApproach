@@ -13,7 +13,7 @@ Nodules       : 1 2 3 4 5 6 7 8 9 10 11 12
 Optimum route : 0 7 2 3 4 12 6 8 1 11 10 5 0
 Distance      : 7293
 Elapse Time   : (Unsafe) 10.55 s
-Elapse Time   : (Safe)  16.20 s
+Elapse Time   : (Safe)  14.60 s 
 */
 using System;
 using System.Runtime.CompilerServices;
@@ -31,7 +31,7 @@ class Program
         while (true) {
             Clear();
             WriteLine("Traveling Salesman Problem Exact algorithm Approach");
-            WriteLine(" [1] Optimized code");
+            WriteLine(" [1] Optimized code (unsafe)");
             WriteLine(" [2] Standard code");
             _ = int.TryParse(ReadLine(), out int option);
             switch (option) {

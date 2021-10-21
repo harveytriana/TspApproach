@@ -41,7 +41,7 @@
     ! Distance     : 7293
     ! Elapsed time : 7.39 s x86 | x64 7.42 s
 
-    program tst_approach
+    program tsp_approach
 
     implicit none
 

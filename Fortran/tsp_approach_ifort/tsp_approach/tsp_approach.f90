@@ -74,7 +74,7 @@
     integer, dimension(0:NODULES_COUNT-1) :: nodules
     integer, dimension(0:NODULES_COUNT-1) :: route
 
-    print *, 'Traveling Salesman Problem Exact algorithm'
+    write(*, '(A)') 'Traveling Salesman Problem Exact algorithm'
 
     data = reshape((/  &
         0, 2451, 713, 1018, 1631, 1374, 2408, 213, 2571, 875, 1420, 2145, 1972,  &
@@ -123,7 +123,7 @@
 
     write(*, '(A, I0)') 'Nodes      : ', nodes
     write(*, '(A, I0)') 'Iterations : ', iterations
-    print *, 'Nodules'
+    write(*, '(A)') 'Nodules'
     do i = 0, finalIndex
         write(*, '(A, I0)') " NODE: ", nodules(i)
     end do
@@ -133,7 +133,7 @@
 
     call cpu_time(stopTime)
 
-    print *, 'RESULT'
+    write(*, '(A)') 'RESULT'
     write(*, '(A, I0)') ' NODE: ', depot
     do i = 0, finalIndex
         write(*, '(A, I0)') ' NODE: ', route(i)

@@ -1,5 +1,6 @@
 """
-TSP execise
+TSP execise. 
+NOTE. A Python expert would write it better, and optimized for run.
 
 RUN
 $ py main.py
@@ -12,18 +13,19 @@ Nodules       : 1 2 3 4 5 6 7 8 9 10 11 12
 RESULT
 Optimum route  : 0 7 10 5 11 1 8 6 12 4 3 2 9 0
 Distance       : 7632
-Elapse time    : 290.47128772735596s (!)
+Elapse time    : 163.9 (!)
 
-NOTE. A Python expert would write it better, and optimized run
-
-Executable from Python Script using Pyinstaller
-$ pyinstaller --onefile main.py
-$ main-exe
+Pynstaller
+----------
+Executable from Python Script using Pyinstaller (https://www.pyinstaller.org/)
+> pyinstaller main.py
+Run
+> dist/main-exe
 
 RESULT
 Optimum route  : 0 7 10 5 11 1 8 6 12 4 3 2 9 0
 Distance       : 7632
-Elapse time    : 157.68839168548584s 
+Elapse time    : 292 - ?
 """
 import math
 import time
@@ -33,14 +35,15 @@ _data = [[]]
 _depot = 0
 _nodes = 0
 _nodules_count = 0
-_iterations = 0
-_percentSize = 0
-_percent = 0
-_permutation = 0
 _minDistance = 0
+_percent = 0
 _route = ""
 _nodules = []
-
+# long int
+_iterations = 0
+_percentSize = 0
+_permutation = 0
+_fragment = 0;
 
 def main():
     print("Traveling Salesman Problem Exact algorithm")
@@ -70,21 +73,24 @@ def main():
 
 def get_optimum_route(data, depot):
     global _data
+    global _nodes;
     global _depot
     global _nodules_count
     global _iterations
     global _percentSize
     global _permutation
+    global _fragment
     global _minDistance
     global _nodules
     global _route
-    # ...
+    # set values
     _data = data
     _depot = depot
     _nodes = len(_data)
     _nodules_count = _nodes - 1
     _iterations = math.factorial(_nodules_count)
     _percentSize = _iterations / 100
+    _fragment = _percentSize;
     _permutation = 1
     _minDistance = 999999
     now = time.time()
@@ -109,16 +115,18 @@ def get_optimum_route(data, depot):
 
 def get_route(start, end):
     global _data
+    global _nodes;
     global _depot
     global _nodules_count
     global _iterations
     global _percentSize
     global _permutation
+    global _fragment
     global _minDistance
     global _nodules
     global _route
     global _percent
-    # ...
+
     if start == (end - 1):
         s = _data[_depot][_nodules[0]] + _data[_nodules[_nodules_count-1]][_depot]
         for i in range(_nodules_count-1):
@@ -128,15 +136,17 @@ def get_route(start, end):
         if _minDistance > s:
             _minDistance = s
             _route = array_to_string(_nodules)
-        if _permutation % _percentSize == 0:
+        # show advance    
+        if _permutation > _fragment:
             _percent += 1
-            print(f"get_route: {_percent} %")
+            _fragment += _percentSize;
+            print(f"Permutations: {_percent} %")
     else:
-        for i in range(start+1, end):
+        for i in range(start + 1, end):
             # swap
             _nodules[start], _nodules[i] = _nodules[i], _nodules[start]
             # permute
-            get_route(start+1, end)
+            get_route(start + 1, end)
             # swap
             _nodules[start], _nodules[i] = _nodules[i], _nodules[start]
 

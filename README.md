@@ -48,7 +48,7 @@ Of course, the calculated times can vary slightly if you run on another machine,
 | C#           | 14.60 (2)           | net6, Visual Studio 2022                            |
 | NodeJS       | 25.25               | Version v15.2.1                                     |
 | Dart         | 34.00               | SDK: 2.14.4 (stable) on "windows_x64"               |
-| Python       | 157.0 (3)           | Version 3.9.5, Executable using Pyinstaller         |
+| Python       | 160 (3)             | Version 3.9.5, Executable using Pyinstaller         |
 
 As theoretically expected, C and C++ are the languages that solves the problem in less time. On the other hand, Rust proves to be the powerful language that it is. While C# is at a little disadvantage in extreme performance, the margin is not great.  
 
@@ -56,7 +56,7 @@ As theoretically expected, C and C++ are the languages that solves the problem i
 
 (2) Safe. For standard C# code, elapse time is ~14.6 s. I mean by "standard" one to which extreme optimizations were not applied. In update 17-10-21 I used a Jagged array to replace the multidimensional array, that improved the time of C#, version without pointers (standard) by ~9%
 
-(3) About Python, an executable was created from the Script using Pyinstaller, however the performance is still far from the others. I would like a Python expert to review the code or other compilation tool, it may be possible to write better code and improve the results.
+(3) About Python, I would like a Python expert to review the code or try a some compilation tool. It may be possible to write better code and improve the results.
 
 The study can continue.This is only a hint of the matter, and is possibly not determinative.
 

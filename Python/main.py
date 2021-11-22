@@ -18,9 +18,9 @@ Elapse time    : 163.9 (!)
 Pynstaller
 ----------
 Executable from Python Script using Pyinstaller (https://www.pyinstaller.org/)
-> pyinstaller main.py
+> pyinstaller -onefile main.py
 Run
-> dist/main-exe
+> dist/main.exe
 
 RESULT
 Optimum route  : 0 7 10 5 11 1 8 6 12 4 3 2 9 0
@@ -43,7 +43,8 @@ _nodules = []
 _iterations = 0
 _percentSize = 0
 _permutation = 0
-_fragment = 0;
+_fragment = 0
+_now = time.time()
 
 def main():
     print("Traveling Salesman Problem Exact algorithm")
@@ -83,6 +84,7 @@ def get_optimum_route(data, depot):
     global _minDistance
     global _nodules
     global _route
+    global _now;
     # set values
     _data = data
     _depot = depot
@@ -93,7 +95,6 @@ def get_optimum_route(data, depot):
     _fragment = _percentSize;
     _permutation = 1
     _minDistance = 999999
-    now = time.time()
 
     # create permutation array
     for i in range(_nodes):
@@ -110,7 +111,7 @@ def get_optimum_route(data, depot):
     print("RESULT")
     print(f"Optimum route  : {_depot} {_route}{_depot}")
     print(f"Distance       : {_minDistance}")
-    print(f"Elapse time    : {time.time() - now}s")
+    print(f"Elapse time    : {(time.time() - _now):.2f} s")
 
 
 def get_route(start, end):
@@ -126,7 +127,8 @@ def get_route(start, end):
     global _nodules
     global _route
     global _percent
-
+    global _now;
+    
     if start == (end - 1):
         s = _data[_depot][_nodules[0]] + _data[_nodules[_nodules_count-1]][_depot]
         for i in range(_nodules_count-1):
@@ -140,7 +142,7 @@ def get_route(start, end):
         if _permutation > _fragment:
             _percent += 1
             _fragment += _percentSize;
-            print(f"Permutations: {_percent} %")
+            print(f"Permutations: {_percent} % | {(time.time() - _now):.2f} s")
     else:
         for i in range(start + 1, end):
             # swap
@@ -157,7 +159,6 @@ def array_to_string(s):
         result += str(i)
         result += " "
     return (result)
-
 
 if __name__ == "__main__":
     main()

@@ -2,7 +2,7 @@
 
 ***Traveling Salesman Problem Exact algorithm as Logic Tester***
 
-*Update: 18-10-21*
+*Update: 20-11-21*
 
 ## Resume
 
@@ -46,7 +46,7 @@ Of course, the calculated times can vary slightly if you run on another machine,
 | GO           | 11.95               | go version go1.17 windows/amd64                     |
 | Java         | 13.20               | OpenJDK 11 (LTS) Windows X64                        |
 | C#           | 14.60 (2)           | net6, Visual Studio 2022                            |
-| NodeJS       | 25.25               | Version v15.2.1                                     |
+| NodeJS       | 25.15               | Version v15.2.1                                     |
 | Dart         | 34.00               | SDK: 2.14.4 (stable) on "windows_x64"               |
 | Python       | 160 (3)             | Version 3.9.5, Executable using Pyinstaller         |
 

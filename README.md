@@ -42,7 +42,7 @@ Of course, the calculated times can vary slightly if you run on another machine,
 | C++          | 6.68s x86 / 7.54s x64 | Visual Studio 2022 (platform v143)                  |
 | Fortran      | 7.39s x86 / 7.42s x64 | Intel® oneAPI HPC / Visual Studio 2019              |
 | Rust         | 10.00s                | rustc 1.55.0 (c8dfcfe04 2021-09-06)                 |
-| C#           | 10.60s (1)            | net6, Visual Studio 2022, unsafe                    |
+| C#           | 10.60s (unsafe)       | net6, Visual Studio 2022, unsafe                    |
 | GO           | 11.95s                | go version go1.17 windows/amd64                     |
 | Java         | 13.20s                | OpenJDK 11 (LTS) Windows X64                        |
 | C#           | 14.60s (2)            | net6, Visual Studio 2022                            |

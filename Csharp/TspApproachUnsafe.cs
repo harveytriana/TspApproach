@@ -23,7 +23,7 @@ class TspApproachUnsafeSample
 {
     public static void Run()
     {
-        int[] data = {
+        int[] data = [
              0, 2451, 713, 1018, 1631, 1374, 2408, 213, 2571, 875, 1420, 2145, 1972,
              2451, 0, 1745, 1524, 831, 1240, 959, 2596, 403, 1589, 1374, 357, 579,
              713, 1745, 0, 355, 920, 803, 1737, 851, 1858, 262, 940, 1453, 1260,
@@ -37,7 +37,7 @@ class TspApproachUnsafeSample
              1420, 1374, 940, 1056, 879, 225, 1891, 1605, 1645, 679, 0, 1017, 1200,
              2145, 357, 1453, 1280, 586, 887, 1114, 2300, 653, 1272, 1017, 0, 504,
              1972, 579, 1260, 987, 371, 999, 701, 2099, 600, 1162, 1200, 504, 0,
-        };
+        ];
 
         new TspApproachUnsafe().GetOptimusRoute(data, 13, 0);
     }
@@ -87,8 +87,8 @@ unsafe class TspApproachUnsafe
         var nodulesPinned = GCHandle.Alloc(nodules, GCHandleType.Pinned);
         _nodules = (int*)nodulesPinned.AddrOfPinnedObject();
         int j = 0;
-        for (int i = 0; i < _nodes; i++) {
-            if (i != _depot) {
+        for(int i = 0; i < _nodes; i++) {
+            if(i != _depot) {
                 _nodules[j++] = i;
             }
         }
@@ -111,32 +111,32 @@ unsafe class TspApproachUnsafe
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     void GetRoute(int start, int end)
     {
-        if (start == end - 1) {
+        if(start == end - 1) {
             // validate distance
             // 1. boundaries A..N, N..A
             var sum = _data[_depotIndex + _nodules[0]] +
                       _data[_nodules[_nodulesBackOne] * _nodes + _depot];
             // 2. route
-            for (int i = 0; i < _nodulesBackOne; i++) {
+            for(int i = 0; i < _nodulesBackOne; i++) {
                 sum += _data[_nodules[i] * _nodes + _nodules[i + 1]];
             }
             _permutation++;
-            if (_distance > sum) {// update minimun
+            if(_distance > sum) {// update minimun
                 _distance = sum;
                 _route.Clear();
-                for (int i = 0; i < _nodulesCount; i++) {
+                for(int i = 0; i < _nodulesCount; i++) {
                     _route.Append(_nodules[i]);
                     _route.Append(' ');
                 }
             }
-            if (_permutation > _fragment) {
+            if(_permutation > _fragment) {
                 _percent += 1;
                 _fragment += _percentSize;
                 Console.WriteLine("Permutations: {0} % ", _percent);
             }
         }
         else {
-            for (int i = start; i < end; i++) {
+            for(int i = start; i < end; i++) {
                 // swap
                 Swap(start, i);
                 // permute
@@ -149,7 +149,7 @@ unsafe class TspApproachUnsafe
 
     long Factorial(int number)
     {
-        if (number < 2)
+        if(number < 2)
             return 1;
         else
             return number * Factorial(number - 1);

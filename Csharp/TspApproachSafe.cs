@@ -1,7 +1,7 @@
 ﻿/*
 Traveling Salesman Problem 
 
-Update: 18-10-21
+Update: 28-11-24 (.net 9)
 
 OUTPUT
 Nodes         : 13
@@ -10,7 +10,7 @@ Nodules       : 1 2 3 4 5 6 7 8 9 10 11 12
 ...
 Optimum route : 0 7 2 3 4 12 6 8 1 11 10 5 0
 Distance      : 7293
-Elapse Time   : ~14.60 s
+Elapse Time   : ~13.28 s
 */
 using System;
 using System.Text;
@@ -74,8 +74,8 @@ class TspApproachSafe
         // arrangement of permutations
         _nodules = new int[_nodulesCount];
         int j = 0;
-        for (int i = 0; i <= _nodulesCount; i++) {
-            if (i != _depot) {
+        for(int i = 0; i <= _nodulesCount; i++) {
+            if(i != _depot) {
                 _nodules[j++] = i;
             }
         }
@@ -98,31 +98,31 @@ class TspApproachSafe
 
     void GetRoute(int start, int finish)
     {
-        if (start == finish - 1) {
+        if(start == finish - 1) {
             int sum = _data[_depot][_nodules[0]] +
                        _data[_nodules[_nodulesCount - 1]][_depot];
             // 2. route
-            for (int i = 0; i < _nodulesCount - 1; i++) {
+            for(int i = 0; i < _nodulesCount - 1; i++) {
                 sum += _data[_nodules[i]][_nodules[i + 1]];
             }
             _permutation++;
-            if (_distance > sum) {// update minimun
+            if(_distance > sum) {// update minimun
                 _distance = sum;
                 _route.Clear();
-                for (int i = 0; i < _nodulesCount; i++) {
+                for(int i = 0; i < _nodulesCount; i++) {
                     _route.Append(_nodules[i]);
                     _route.Append(' ');
                 }
             }
             // show advance
-            if (_permutation > _fragment) {
+            if(_permutation > _fragment) {
                 _percent += 1;
                 _fragment += _percentSize;
                 Console.WriteLine("Permutations: {0} %", _percent);
             }
         }
         else {
-            for (int i = start; i < finish; i++) {
+            for(int i = start; i < finish; i++) {
                 // swap
                 Swap(start, i);
                 // permute
@@ -142,7 +142,7 @@ class TspApproachSafe
 
     long Factorial(int number)
     {
-        if (number < 2)
+        if(number < 2)
             return 1;
         else
             return number * Factorial(number - 1);

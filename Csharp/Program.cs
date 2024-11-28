@@ -15,12 +15,7 @@ Distance      : 7293
 Elapse Time   : (Unsafe) 10.55 s
 Elapse Time   : (Safe)  14.60 s 
 */
-using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Text;
-
-using BenchmarkDotNet.Running;
+using tsp;
 
 using static System.Console;
 
@@ -28,20 +23,21 @@ class Program
 {
     public static void Main()
     {
-        while (true) {
+        while(true) {
             Clear();
             WriteLine("Traveling Salesman Problem Exact algorithm Approach");
-            WriteLine(" [1] Optimized code (unsafe)");
-            WriteLine(" [2] Standard code");
+            WriteLine(" [1] Standard code");
+            WriteLine(" [2] Optimized code (unsafe)");
             _ = int.TryParse(ReadLine(), out int option);
-            switch (option) {
+            switch(option) {
                 case 1:
-                    TspApproachUnsafeSample.Run();
+                    TspApproachSample.Run();
                     break;
                 case 2:
-                    TspApproachSafeSample.Run();
+                    TspApproachUnsafeSample.Run();
                     break;
-                default: return;
+                default:
+                    return;
             }
         }
 

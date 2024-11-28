@@ -10,17 +10,18 @@ Nodules       : 1 2 3 4 5 6 7 8 9 10 11 12
 ...
 Optimum route : 0 7 2 3 4 12 6 8 1 11 10 5 0
 Distance      : 7293
-Elapse Time   : ~13.28 s
+Elapse Time   : ~13.15 s
 */
 using System;
 using System.Text;
 
-public class TspApproachSafeSample
+namespace tsp;
+
+public class TspApproachSample
 {
     public static void Run()
     {
-        int[][] data =
-        [
+        int[][] data = [
             [0, 2451, 713, 1018, 1631, 1374, 2408, 213, 2571, 875, 1420, 2145, 1972],
             [2451, 0, 1745, 1524, 831, 1240, 959, 2596, 403, 1589, 1374, 357, 579],
             [713, 1745, 0, 355, 920, 803, 1737, 851, 1858, 262, 940, 1453, 1260],
@@ -35,12 +36,11 @@ public class TspApproachSafeSample
             [2145, 357, 1453, 1280, 586, 887, 1114, 2300, 653, 1272, 1017, 0, 504],
             [1972, 579, 1260, 987, 371, 999, 701, 2099, 600, 1162, 1200, 504, 0],
         ];
-
-        new TspApproachSafe().GetOptimusRoute(data, 0);
+        new TspApproach().GetOptimusRoute(data, 0);
     }
 }
 
-class TspApproachSafe
+class TspApproach
 {
     int[][] _data;
     int _depot;
@@ -140,7 +140,7 @@ class TspApproachSafe
         _nodules[j] = t;
     }
 
-    long Factorial(int number)
+    static long Factorial(int number)
     {
         if(number < 2)
             return 1;
@@ -148,5 +148,3 @@ class TspApproachSafe
             return number * Factorial(number - 1);
     }
 }
-
-

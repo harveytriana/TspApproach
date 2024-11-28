@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using BenchmarkDotNet.Attributes;
+﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Configs;
 
 namespace tsp.Improvements
 {
-    [SimpleJob(launchCount: 1, warmupCount: 1, targetCount: 5)]
+    [SimpleJob(launchCount: 1, warmupCount: 1)]
     [GroupBenchmarksBy(BenchmarkLogicalGroupRule.ByCategory), CategoriesColumn]
     [MarkdownExporterAttribute.GitHub]
     [MemoryDiagnoser]
@@ -44,7 +38,7 @@ namespace tsp.Improvements
             { 1420, 1374, 940, 1056, 879, 225, 1891, 1605, 1645, 679, 0, 1017, 1200 },
             { 2145, 357, 1453, 1280, 586, 887, 1114, 2300, 653, 1272, 1017, 0, 504 },
             { 1972, 579, 1260, 987, 371, 999, 701, 2099, 600, 1162, 1200, 504, 0 },
-        };        
+        };
         static readonly long[] data64SD = {
              0, 2451, 713, 1018, 1631, 1374, 2408, 213, 2571, 875, 1420, 2145, 1972,
              2451, 0, 1745, 1524, 831, 1240, 959, 2596, 403, 1589, 1374, 357, 579,
